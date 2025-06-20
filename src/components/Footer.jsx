@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import "./Footer.css";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import {
   FaInstagram,
   FaFacebook,

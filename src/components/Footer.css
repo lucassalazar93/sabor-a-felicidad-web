@@ -1,3 +1,4 @@
+/* ================= FOOTER ================= */
 .footer {
   background-color: #ffeef4;
   padding: 3rem 2rem 2rem;
@@ -6,6 +7,7 @@
   box-shadow: 0 -5px 20px rgba(248, 125, 169, 0.1);
 }
 
+/* === CONTENEDOR === */
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -15,6 +17,7 @@
   text-align: left;
 }
 
+/* === MARCA Y LOGO === */
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -23,19 +26,25 @@
 }
 
 .footer-brand img {
-  width: 120px;
+  width: 150px; /* ✅ más grande */
   margin-bottom: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-brand img:hover {
+  transform: scale(1.05);
 }
 
 .footer-brand p {
   font-size: 0.95rem;
   color: #333;
-  max-width: 200px;
+  max-width: 220px;
   margin: 0;
   line-height: 1.4;
   font-style: italic;
 }
 
+/* === CONTACTO === */
 .footer-contact h4,
 .footer-social h4 {
   color: var(--color-primary);
@@ -54,6 +63,7 @@
   gap: 0.5rem;
 }
 
+/* === REDES SOCIALES === */
 .footer-social a {
   margin-right: 1rem;
   font-size: 1.5rem;
@@ -65,6 +75,7 @@
   color: #c2185b;
 }
 
+/* === COPYRIGHT === */
 .footer-bottom {
   text-align: center;
   margin-top: 2rem;
@@ -72,7 +83,7 @@
   color: #999;
 }
 
-/* Mapa */
+/* === MAPA === */
 .footer-map {
   margin-top: 2rem;
   display: flex;
@@ -88,7 +99,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Responsive */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .footer-content {
     text-align: center;
@@ -104,5 +115,9 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+  }
+
+  .footer-brand img {
+    width: 130px; /* ✅ tamaño especial en móvil */
   }
 }

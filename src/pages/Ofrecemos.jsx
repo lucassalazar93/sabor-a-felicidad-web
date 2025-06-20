@@ -6,12 +6,12 @@ import "aos/dist/aos.css";
 import styles from "./Ofrecemos.module.css";
 
 // ✅ Importaciones reales desde assets
-import desayunoImg from "@/assets/desayuno.png";
-import postresImg from "@/assets/postres.png";
-import snacksImg from "@/assets/snakc.png";
+import desayunoImg from "@/assets/desayuno.jpg";
+import postresImg from "@/assets/postres.jpg";
+import snacksImg from "@/assets/snack.jpeg";
 import rapidasImg from "@/assets/rapidas.png";
 import tipicaImg from "@/assets/tipica.png";
-import gourmetImg from "@/assets/gourmet.png";
+import gourmetImg from "@/assets/gourmet.jpg";
 
 // ✅ Opciones con imágenes importadas
 const opciones = [

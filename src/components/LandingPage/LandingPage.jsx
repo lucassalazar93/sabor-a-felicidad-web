@@ -6,8 +6,9 @@ import Ofrecemos from "../../pages/Ofrecemos";
 import PorQueElegirnos from "../../pages/PorQueElegirnos";
 import Testimonios from "../Testimonios";
 import CelebracionesEspeciales from "../CelebracionesEspeciales"; // ✅ NUEVA SECCIÓN
-import SeccionCotizar from "../../pages/SeccionCotizar";
+
 import WhatsappAvatar from "../WhatsappAvatar";
+import FormularioCotizacion from "@/components/FormularioCotizacion";
 
 const LandingPage = () => {
   return (
@@ -19,8 +20,8 @@ const LandingPage = () => {
       <CelebracionesEspeciales />
       <PorQueElegirnos />
       <Testimonios />
-      <SeccionCotizar />
       <WhatsappAvatar />
+      <FormularioCotizacion />
     </>
   );
 };

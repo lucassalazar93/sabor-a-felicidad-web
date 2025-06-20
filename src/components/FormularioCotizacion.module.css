@@ -1,0 +1,54 @@
+.formWrapper {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  max-width: 700px;
+  margin: 3rem auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.titulo {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--color-text-main);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: var(--font-body);
+}
+
+.botonEnviar {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.botonEnviar:hover {
+  background-color: var(--color-secondary);
+}

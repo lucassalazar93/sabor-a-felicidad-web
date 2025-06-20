@@ -1,9 +1,12 @@
 // src/pages/CategoriasPage.jsx
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import styles from "./CategoriaPage.module.css";
 import BannerCategorias from "../components/BannerCategorias";
+import CotizadorFlotante from "@/components/CotizadorFlotante";
 
-// ✅ IMPORTACIONES de imágenes — desayuno
+// IMPORTACIONES de imágenes (desayunos, postres, etc.)
 import desayuno1 from "@/assets/desayunos/desayuno1.png";
 import desayuno2 from "@/assets/desayunos/desayuno2.png";
 import desayuno3 from "@/assets/desayunos/desayuno3.png";
@@ -11,7 +14,6 @@ import desayuno4 from "@/assets/desayunos/desayuno4.png";
 import desayuno5 from "@/assets/desayunos/desayuno5.png";
 import desayuno6 from "@/assets/desayunos/desayuno6.png";
 
-// ✅ IMPORTACIONES — postres
 import postres1 from "@/assets/postres/postres1.png";
 import postres2 from "@/assets/postres/postres2.png";
 import postres3 from "@/assets/postres/postres3.png";
@@ -19,7 +21,6 @@ import postres4 from "@/assets/postres/postres4.png";
 import postres5 from "@/assets/postres/postres5.png";
 import postres6 from "@/assets/postres/postres6.png";
 
-// ✅ IMPORTACIONES — snacks
 import snacks1 from "@/assets/snacks/snacks1.png";
 import snacks2 from "@/assets/snacks/snacks2.png";
 import snacks3 from "@/assets/snacks/snacks3.png";
@@ -33,7 +34,6 @@ import snacks10 from "@/assets/snacks/snacks10.png";
 import snacks11 from "@/assets/snacks/snacks11.png";
 import snacks12 from "@/assets/snacks/snacks12.png";
 
-// ✅ IMPORTACIONES — rápidas
 import rapidas1 from "@/assets/rapidas/rapidas1.png";
 import rapidas2 from "@/assets/rapidas/rapidas2.png";
 import rapidas3 from "@/assets/rapidas/rapidas3.png";
@@ -44,7 +44,6 @@ import rapidas7 from "@/assets/rapidas/rapidas7.png";
 import rapidas8 from "@/assets/rapidas/rapidas8.png";
 import rapidas9 from "@/assets/rapidas/rapidas9.png";
 
-// ✅ IMPORTACIONES — típica
 import tipica1 from "@/assets/tipica/tipica1.png";
 import tipica2 from "@/assets/tipica/tipica2.png";
 import tipica3 from "@/assets/tipica/tipica3.png";
@@ -55,7 +54,6 @@ import tipica7 from "@/assets/tipica/tipica7.png";
 import tipica8 from "@/assets/tipica/tipica8.png";
 import tipica9 from "@/assets/tipica/tipica9.png";
 
-// ✅ IMPORTACIONES — gourmet
 import gourmet1 from "@/assets/gourmet/gourmet1.png";
 import gourmet2 from "@/assets/gourmet/gourmet2.png";
 import gourmet3 from "@/assets/gourmet/gourmet3.png";
@@ -66,11 +64,11 @@ import gourmet7 from "@/assets/gourmet/gourmet7.png";
 import gourmet8 from "@/assets/gourmet/gourmet8.png";
 import gourmet9 from "@/assets/gourmet/gourmet9.png";
 
-// ✅ Datos organizados
 const categoriasData = {
   desayunos: {
-    titulo: "Desayunos",
-    descripcion: "Inspira tus mañanas con sabor y emoción.",
+    titulo: "🥐 Desayunos",
+    descripcion: "Inspira tus mañanas con sabor, frescura y emoción.",
+    boton: "🍽️ Cotiza tu desayuno personalizado",
     items: [
       {
         nombre: "Desayuno Clásico",
@@ -83,30 +81,31 @@ const categoriasData = {
         descripcion: "Granola, yogurt y frutos del bosque.",
       },
       {
-        nombre: "Tazón Energético",
+        nombre: "Croissant de Jamón",
         imagen: desayuno3,
-        descripcion: "Granola, yogurt y frutos del bosque.",
+        descripcion: "Croissant relleno, fruta y chocolatina.",
       },
       {
-        nombre: "Tazón Energético",
+        nombre: "Wrap de Pollo",
         imagen: desayuno4,
-        descripcion: "Granola, yogurt y frutos del bosque.",
+        descripcion: "Wrap fresco, jugo natural y snack dulce.",
       },
       {
-        nombre: "Tazón Energético",
+        nombre: "Huevos Ingleses",
         imagen: desayuno5,
-        descripcion: "Granola, yogurt y frutos del bosque.",
+        descripcion: "Huevos, salchicha, beans y pan tostado.",
       },
       {
-        nombre: "Tazón Energético",
+        nombre: "Mini Almohábana",
         imagen: desayuno6,
-        descripcion: "Granola, yogurt y frutos del bosque.",
+        descripcion: "Con fruta, bebida y galletas dulces.",
       },
     ],
   },
   postres: {
-    titulo: "Postres",
+    titulo: "🍰 Postres",
     descripcion: "Un toque dulce para momentos especiales.",
+    boton: "🍰 Cotiza tu postre ideal",
     items: [
       {
         nombre: "Panna Cotta de Frutos Rojos",
@@ -119,30 +118,31 @@ const categoriasData = {
         descripcion: "Delicioso y perfecto para compartir.",
       },
       {
-        nombre: "Panna Cotta de Frutos Rojos",
+        nombre: "Mousse de Maracuyá",
         imagen: postres3,
-        descripcion: "Postre suave con frutos rojos frescos.",
+        descripcion: "Frescura tropical en cada bocado.",
       },
       {
-        nombre: "Tarta de Chocolate",
+        nombre: "Brownie con Helado",
         imagen: postres4,
-        descripcion: "Delicioso y perfecto para compartir.",
+        descripcion: "Caliente y frío en una misma experiencia.",
       },
       {
-        nombre: "Panna Cotta de Frutos Rojos",
+        nombre: "Flan de Coco",
         imagen: postres5,
-        descripcion: "Postre suave con frutos rojos frescos.",
+        descripcion: "Dulce, cremoso y tropical.",
       },
       {
-        nombre: "Tarta de Chocolate",
+        nombre: "Trufas Artesanales",
         imagen: postres6,
-        descripcion: "Delicioso y perfecto para compartir.",
+        descripcion: "Para regalar y deleitar.",
       },
     ],
   },
   snacks: {
-    titulo: "Snacks",
+    titulo: "🌮 Snacks",
     descripcion: "Para pausas con propósito y sabor.",
+    boton: "🌮 Cotiza tu snack perfecto",
     items: [
       snacks1,
       snacks2,
@@ -156,15 +156,16 @@ const categoriasData = {
       snacks10,
       snacks11,
       snacks12,
-    ].map((img, i) => ({
+    ].map((img) => ({
       nombre: "Bandeja Mini Salados",
       imagen: img,
       descripcion: "Variedad de bocados gourmet.",
     })),
   },
   rapidas: {
-    titulo: "Rápidas",
+    titulo: "🍔 Rápidas",
     descripcion: "Listas para disfrutar sin esperas.",
+    boton: "🍔 Cotiza comida rápida",
     items: [
       rapidas1,
       rapidas2,
@@ -176,14 +177,15 @@ const categoriasData = {
       rapidas8,
       rapidas9,
     ].map((img) => ({
-      nombre: "Panna Cotta de Frutos Rojos",
+      nombre: "Wrap Express",
       imagen: img,
-      descripcion: "Postre suave con frutos rojos frescos.",
+      descripcion: "Soluciones rápidas y sabrosas.",
     })),
   },
   tipica: {
-    titulo: "Típica",
+    titulo: "🍛 Típica",
     descripcion: "Sabores de nuestra tierra, con orgullo.",
+    boton: "🍛 Cotiza plato típico",
     items: [
       tipica1,
       tipica2,
@@ -201,8 +203,9 @@ const categoriasData = {
     })),
   },
   gourmet: {
-    titulo: "Gourmet",
+    titulo: "🥩 Gourmet",
     descripcion: "Delicias exclusivas para sorprender.",
+    boton: "🥩 Cotiza plato gourmet",
     items: [
       gourmet1,
       gourmet2,
@@ -222,24 +225,34 @@ const categoriasData = {
 };
 
 const CategoriasPage = () => {
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null); // será un objeto con nombre y categoría
+
   useEffect(() => {
+    AOS.init({ duration: 900, easing: "ease-in-out", once: true });
     const hash = window.location.hash?.substring(1);
     if (hash) {
       setTimeout(() => {
         const el = document.getElementById(hash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 300);
     }
   }, []);
 
+  const abrirFormulario = (nombreProducto, nombreCategoria) => {
+    setProductoSeleccionado({
+      nombre: nombreProducto,
+      categoria: nombreCategoria,
+    });
+    setMostrarFormulario(true);
+  };
+
   return (
     <>
       <BannerCategorias />
-      <section className={styles.categoria}>
+      <section className={styles.categoriasWrapper}>
         {Object.entries(categoriasData).map(([key, data]) => (
-          <div key={key} id={key} className={styles.seccion}>
+          <div key={key} id={key} className={styles.categoria}>
             <h2 className={styles.titulo}>{data.titulo}</h2>
             <p className={styles.descripcion}>{data.descripcion}</p>
             <p className={styles.indicadorDeslizamiento}>
@@ -247,17 +260,41 @@ const CategoriasPage = () => {
             </p>
             <div className={styles.grid}>
               {data.items.map((item, idx) => (
-                <div className={styles.card} key={idx}>
+                <div
+                  className={styles.card}
+                  key={idx}
+                  data-aos="zoom-in-up"
+                  data-aos-delay={(idx % 6) * 100}
+                  data-aos-offset="100"
+                >
                   <img src={item.imagen} alt={item.nombre} loading="lazy" />
                   <h3>{item.nombre}</h3>
                   <p>{item.descripcion}</p>
-                  <button className={styles.boton}>Cotizar</button>
+                  <button
+                    className={styles.boton}
+                    onClick={() => abrirFormulario(item.nombre, data.titulo)}
+                  >
+                    Cotizar
+                  </button>
                 </div>
               ))}
             </div>
+            <a
+              onClick={() => abrirFormulario(null, data.titulo)}
+              className={styles.botonExplorar}
+              data-aos="fade-up"
+            >
+              {data.boton}
+            </a>
           </div>
         ))}
       </section>
+
+      <CotizadorFlotante
+        isOpen={mostrarFormulario}
+        onClose={() => setMostrarFormulario(false)}
+        categoriaPreseleccionada={productoSeleccionado}
+      />
     </>
   );
 };

@@ -1,13 +1,12 @@
-// src/components/HeroSection.jsx
 import { useEffect, useState } from "react";
 import styles from "./HeroSection.module.css";
 
 // ✅ IMPORTACIÓN de imágenes desktop
-import imgDesayuno from "@/assets/desayuno.png";
-import imgPostres from "@/assets/postres.png";
-import imgSnacks from "@/assets/snakc.png"; // nombre real en carpeta
+import imgDesayuno from "@/assets/desayuno.jpg";
+import imgPostres from "@/assets/postres.jpg";
+import imgSnacks from "@/assets/snack.jpeg"; // ← esta es la que tienes realmente
 import imgTipica from "@/assets/tipica.png";
-import imgGourmet from "@/assets/gourmet.png";
+import imgGourmet from "@/assets/gourmet.jpg";
 
 // ✅ IMPORTACIÓN de imágenes mobile
 import mobile1 from "@/assets/bannerMovil1.png";
@@ -16,7 +15,7 @@ import mobile3 from "@/assets/bannerMovil3.png";
 import mobile4 from "@/assets/bannerMovil4.png";
 import mobile5 from "@/assets/bannerMovil5.png";
 
-// ✅ Slides con imágenes importadas
+// Slides
 const slides = [
   {
     image: imgDesayuno,
@@ -67,14 +66,12 @@ const HeroSection = () => {
   const [previous, setPrevious] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // ✅ Actualiza el estado si cambia el tamaño de la ventana
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Ciclo automático de carrusel
   useEffect(() => {
     const interval = setInterval(() => {
       setPrevious(current);
@@ -90,18 +87,15 @@ const HeroSection = () => {
 
   return (
     <section id="inicio" className={styles.hero}>
-      {/* Imagen actual */}
       <div
         className={`${styles.bg} ${styles.fadeIn}`}
         style={{ backgroundImage: `url(${getImage(current)})` }}
       />
-      {/* Imagen anterior para transición suave */}
       <div
         className={`${styles.bg} ${styles.fadeOut}`}
         style={{ backgroundImage: `url(${getImage(previous)})` }}
       />
 
-      {/* Contenido superpuesto */}
       <div className={styles.overlay}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>{title}</h1>
@@ -118,7 +112,6 @@ const HeroSection = () => {
           </a>
         </div>
 
-        {/* Puntos de navegación */}
         <div className={styles.dots}>
           {slides.map((_, i) => (
             <span
