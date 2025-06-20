@@ -63,20 +63,21 @@
 
 /* 📱 Ajustes para pantallas móviles */
 @media (max-width: 480px) {
+  .wrapper {
+    bottom: 12px;
+    right: 12px;
+  }
+
   .avatarImg {
-    height: 130px;
+    height: 120px;
+    max-width: 100px;
   }
 
   .tooltip {
-    font-size: 0.85rem;
-    padding: 8px 16px;
-    top: 55px;
-    right: 60%;
-    max-width: 180px;
-  }
-
-  .wrapper {
-    bottom: 8px;
-    right: 8px;
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    top: 45px;
+    right: 50%;
+    max-width: 160px;
   }
 }
