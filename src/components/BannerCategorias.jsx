@@ -13,6 +13,8 @@ const imagenesMobile = [
   "/images/banner/bannerCelular1.png",
   "/images/banner/bannerCelular2.png",
   "/images/banner/bannerCelular3.png",
+  "/images/banner/bannerCelular4.png",
+  "/images/banner/bannerCelular5.png",
 ];
 
 const BannerCategorias = () => {
