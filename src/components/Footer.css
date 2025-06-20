@@ -1,0 +1,108 @@
+.footer {
+  background-color: #ffeef4;
+  padding: 3rem 2rem 2rem;
+  font-family: var(--font-ui);
+  color: var(--color-text-main);
+  box-shadow: 0 -5px 20px rgba(248, 125, 169, 0.1);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-brand img {
+  width: 120px;
+  margin-bottom: 0.8rem;
+}
+
+.footer-brand p {
+  font-size: 0.95rem;
+  color: #333;
+  max-width: 200px;
+  margin: 0;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.footer-contact h4,
+.footer-social h4 {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.footer-contact p,
+.footer-contact a {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  color: #555;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-social a {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #c2185b;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* Mapa */
+.footer-map {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-map iframe {
+  width: 100%;
+  max-width: 1100px;
+  height: 250px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    text-align: center;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-contact p,
+  .footer-contact a {
+    justify-content: center;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

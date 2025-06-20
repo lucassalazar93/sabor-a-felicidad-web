@@ -1,0 +1,63 @@
+.testimonios {
+  background-color: var(--color-bg-light);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.titulo {
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  color: var(--color-primary); /* ← CAMBIO DE COLOR */
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #fff0f5;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(248, 125, 169, 0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.avatar {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mensaje {
+  font-style: italic;
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 90%;
+}
+
+.nombre {
+  font-weight: bold;
+  color: var(--color-primary);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}

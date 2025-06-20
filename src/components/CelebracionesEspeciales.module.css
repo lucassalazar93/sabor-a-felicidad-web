@@ -1,0 +1,119 @@
+.celebraciones {
+  padding: 5rem 2rem;
+  background-color: #fff8fb;
+  text-align: center;
+}
+
+.titulo {
+  font-size: 2.4rem;
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: #666;
+  font-family: var(--font-body);
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.card {
+  background-color: #fff5f8;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(248, 125, 169, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  outline: none; /* 🔥 Elimina contornos negros */
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(248, 125, 169, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background-color: #fff5f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-main);
+  margin-bottom: 1.2rem;
+}
+
+/* Botón */
+.boton {
+  font-family: var(--font-ui);
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.boton:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+/* Estado desactivado */
+.card.desactivada {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.card.desactivada::after {
+  content: "Próximamente";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #c2185b;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}

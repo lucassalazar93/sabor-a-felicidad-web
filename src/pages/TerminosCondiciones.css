@@ -1,0 +1,30 @@
+.legal {
+  padding: 5rem 2rem;
+  background-color: #fff5f8;
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+.legal .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.legal h1 {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.legal h2 {
+  font-size: 1.4rem;
+  color: #a63f61;
+  margin-top: 2rem;
+}
+
+.legal p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}

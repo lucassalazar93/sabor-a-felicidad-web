@@ -1,0 +1,207 @@
+/* Variables base */
+:root {
+  --color-principal: #f67280;
+  --color-secundario: #ffe6ea;
+  --color-fondo: #fffafc;
+  --color-texto: #5c2a2a;
+  --color-boton: #f67280;
+  --color-hover: #fc9ca8;
+  --radio: 1.5rem;
+  --sombra: 0 10px 20px rgba(246, 114, 128, 0.2);
+}
+
+/* General */
+.landing-container {
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-principal);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroImage {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  background-color: var(--color-boton);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radio);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--color-hover);
+}
+
+/* Categorías */
+.choose-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.choose-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.category-swiper {
+  padding: 1rem 0;
+}
+
+.category-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.card-3d {
+  background: var(--color-secundario);
+  padding: 1.5rem;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  text-align: center;
+  width: 240px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: scale(1.03) rotateY(2deg);
+  box-shadow: 0 12px 24px rgba(246, 114, 128, 0.25);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.quote-btn {
+  background-color: var(--color-principal);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radio);
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.quote-btn:hover {
+  background-color: var(--color-hover);
+}
+
+/* Cotizador */
+.cotizador {
+  padding: 2rem 1rem;
+  background-color: #fff0f4;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  margin-bottom: 2rem;
+}
+
+.cotizador h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quote-form label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.quote-form input,
+.quote-form select {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e0b4b4;
+}
+
+.submit-quote {
+  margin-top: 1rem;
+  background-color: var(--color-boton);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+
+.submit-quote:hover {
+  background-color: var(--color-hover);
+}
+
+/* Beneficios */
+.benefits {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.benefits h2 {
+  margin-bottom: 1.5rem;
+}
+
+.benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+/* CTA Final */
+.cta-final {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--color-secundario);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.cta-final h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.big-cta {
+  background-color: var(--color-boton);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--radio);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.big-cta:hover {
+  background-color: var(--color-hover);
+}

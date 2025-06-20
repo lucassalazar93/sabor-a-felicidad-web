@@ -1,0 +1,160 @@
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 72px;
+  padding: 0.6rem 2rem;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+.scrolled {
+  background-color: rgba(255, 245, 248, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+/* === Contenedor con Grid === */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 120px; /* Aumentamos el tamaño */
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  top: 10px; /* Desciende ligeramente para mejor centrado */
+  margin-left: -20px; /* Opcional: mueve un poco hacia la izquierda si lo deseas */
+}
+
+/* Links centrados */
+.navLinks {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #a63f61;
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.navLinks a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #ff88a7;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 1px;
+  transition: width 0.3s ease-in-out;
+}
+
+.navLinks a:hover {
+  color: #ff5d85;
+}
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+/* Contacto a la derecha */
+.contacto {
+  font-weight: bold;
+  color: #ff5d85;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Burger icon (mobile) */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #a63f61;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.bar2 {
+  opacity: 0;
+}
+.bar3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.contactoMobile {
+  display: none;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr auto;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #fff5f8;
+    padding: 2rem;
+    display: none;
+    gap: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 12px 12px;
+  }
+
+  .mobileOpen {
+    display: flex;
+  }
+
+  .contacto {
+    display: none;
+  }
+
+  .contactoMobile {
+    display: block;
+    font-weight: bold;
+    color: #ff5d85;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+  }
+}

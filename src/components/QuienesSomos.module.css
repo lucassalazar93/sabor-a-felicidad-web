@@ -1,0 +1,105 @@
+.quienesSomos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 3rem;
+  background-color: #fff5f8;
+  text-align: center;
+  gap: 2.5rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.title {
+  font-family: var(--font-title);
+  font-size: 2.6rem;
+  color: var(--color-primary);
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6),
+    0 1px 6px rgba(0, 0, 0, 0.159);
+}
+
+.text {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--color-text-main);
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  overflow: visible;
+  margin-top: -5rem; /* eleva la imagen */
+}
+
+.image {
+  width: 80%; /* antes era 100% */
+  max-width: 350px; /* antes era 500px */
+  transform: translateX(10%);
+  object-fit: contain;
+  z-index: 1;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.403));
+}
+
+/* ========================
+   Layout en pantallas grandes
+======================== */
+@media (min-width: 768px) {
+  .quienesSomos {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    padding: 6rem 4rem;
+  }
+
+  .content {
+    flex: 1;
+    padding-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .text {
+    margin: 0;
+  }
+
+  .image {
+    width: 110%;
+    max-width: 550px;
+  }
+}
+
+/* ========================
+   Ajustes para móviles
+======================== */
+@media (max-width: 767px) {
+  .imageContainer {
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .image {
+    width: 90%;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .text {
+    font-size: 1.05rem;
+  }
+}

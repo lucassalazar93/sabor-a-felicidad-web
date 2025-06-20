@@ -1,0 +1,227 @@
+/* ================================
+   CONTENEDOR GENERAL
+================================= */
+.categoriasWrapper {
+  width: 100%;
+  background-color: var(--color-bg-light);
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+}
+
+/* ================================
+   SECCIÓN INDIVIDUAL
+================================= */
+.categoria {
+  padding: 4rem 1rem;
+  scroll-margin-top: 120px;
+  max-width: 1200px;
+  margin: 0 auto 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ================================
+   TÍTULO Y DESCRIPCIÓN
+================================= */
+.titulo {
+  font-size: 2.6rem;
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+
+/* ================================
+   INDICADOR DE DESLIZAMIENTO
+================================= */
+.indicadorDeslizamiento {
+  display: none;
+  font-size: 1rem;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  color: var(--color-secondary);
+  text-align: center;
+  margin-bottom: 1.6rem;
+  animation: parpadeo 2s infinite ease-in-out;
+  position: relative;
+}
+
+.indicadorDeslizamiento::after {
+  content: "➡️";
+  display: inline-block;
+  margin-left: 0.5rem;
+  animation: rebote 1.4s infinite ease-in-out;
+}
+
+/* ================================
+   ANIMACIONES
+================================= */
+@keyframes parpadeo {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes rebote {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+}
+
+/* ================================
+   GRID DE TARJETAS - ESCRITORIO
+================================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ================================
+   TARJETAS
+================================= */
+.card {
+  background-color: #fff5f8;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(248, 125, 169, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(248, 125, 169, 0.18);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  font-family: var(--font-title);
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  margin-bottom: 1.4rem;
+}
+
+/* BOTÓN */
+.card button,
+.boton {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  align-self: center;
+}
+
+.card button:hover,
+.boton:hover {
+  background-color: var(--color-secondary);
+}
+
+/* MENSAJE SI NO HAY DATOS */
+.noData {
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #888;
+  text-align: center;
+}
+
+/* ================================
+   RESPONSIVE: TABLET
+================================= */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================================
+   RESPONSIVE: MÓVIL
+================================= */
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.6rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    max-width: 90%;
+    padding: 2rem 1.6rem;
+    height: auto;
+  }
+
+  .card img {
+    height: auto;
+    max-height: 200px;
+  }
+
+  .titulo {
+    font-size: 2.2rem;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .indicadorDeslizamiento {
+    display: block;
+  }
+}
