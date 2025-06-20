@@ -1,17 +1,23 @@
+// vite.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+
+// Definición compatible con ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": path.resolve(__dirname, "src"), // Importar desde "@/components/..."
     },
   },
   server: {
-    host: true, // Permite acceso desde otras IPs en la red
-    port: 5173, // Puedes cambiar el puerto si lo necesitas
-    strictPort: true, // Si el puerto está ocupado, no elige otro automáticamente
+    host: "0.0.0.0", // Asegura accesibilidad en red local
+    port: 5173,
+    strictPort: true,
   },
 });
