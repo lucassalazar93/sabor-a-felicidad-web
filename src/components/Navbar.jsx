@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
+import logo from "@/assets/logo.png"; // ✅ Importación correcta
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -13,7 +14,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Cierra menú en móvil y hace scroll suave
+  // ✅ Scroll suave + cerrar menú móvil
   const handleNavigation = (e, id) => {
     e.preventDefault();
     const section = document.querySelector(id);
@@ -26,10 +27,15 @@ const Navbar = () => {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <a href="#inicio">
-          <img src="/images/logo.png" alt="Logo" className={styles.logo} />
+        <a href="#inicio" onClick={(e) => handleNavigation(e, "#inicio")}>
+          <img
+            src={logo}
+            alt="Sabor a Felicidad - Logo"
+            className={styles.logo}
+          />
         </a>
 
+        {/* Links principales */}
         <ul
           className={`${styles.navLinks} ${menuOpen ? styles.mobileOpen : ""}`}
         >
@@ -64,11 +70,17 @@ const Navbar = () => {
           </li>
         </ul>
 
+        {/* Teléfono visible solo en escritorio */}
         <div className={styles.contacto}>
           <a href="tel:+573507881893">📞 350 788 18 93</a>
         </div>
 
-        <div className={styles.burger} onClick={() => setMenuOpen(!menuOpen)}>
+        {/* Menú hamburguesa móvil */}
+        <div
+          className={styles.burger}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Abrir menú de navegación"
+        >
           <div className={`${styles.bar} ${menuOpen ? styles.bar1 : ""}`} />
           <div className={`${styles.bar} ${menuOpen ? styles.bar2 : ""}`} />
           <div className={`${styles.bar} ${menuOpen ? styles.bar3 : ""}`} />

@@ -5,40 +5,49 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "./Ofrecemos.module.css";
 
+// ✅ Importaciones reales desde assets
+import desayunoImg from "@/assets/desayuno.png";
+import postresImg from "@/assets/postres.png";
+import snacksImg from "@/assets/snakc.png";
+import rapidasImg from "@/assets/rapidas.png";
+import tipicaImg from "@/assets/tipica.png";
+import gourmetImg from "@/assets/gourmet.png";
+
+// ✅ Opciones con imágenes importadas
 const opciones = [
   {
     nombre: "Desayunos",
-    imagen: "/images/desayuno.png",
+    imagen: desayunoImg,
     descripcion: "Inspira desde temprano con sabor y emoción.",
     categoria: "desayunos",
   },
   {
     nombre: "Postres",
-    imagen: "/images/postres.png",
+    imagen: postresImg,
     descripcion: "Un toque dulce para momentos especiales.",
     categoria: "postres",
   },
   {
     nombre: "Snacks",
-    imagen: "/images/snakc.png",
+    imagen: snacksImg,
     descripcion: "Ideal para pausas con propósito.",
     categoria: "snacks",
   },
   {
-    nombre: "Rapidas",
-    imagen: "/images/rapidas.png",
-    descripcion: "Ideal para pausas con propósito.",
+    nombre: "Rápidas",
+    imagen: rapidasImg,
+    descripcion: "Ideal para quienes aman lo práctico.",
     categoria: "rapidas",
   },
   {
     nombre: "Típica",
-    imagen: "/images/tipica.png",
+    imagen: tipicaImg,
     descripcion: "Sabores de nuestra tierra, con orgullo.",
     categoria: "tipica",
   },
   {
     nombre: "Gourmet",
-    imagen: "/images/gourmet.png",
+    imagen: gourmetImg,
     descripcion: "Delicias exclusivas para sorprender.",
     categoria: "gourmet",
   },
@@ -62,7 +71,12 @@ const Ofrecemos = () => {
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
-            <img src={item.imagen} alt={item.nombre} className={styles.img} />
+            <img
+              src={item.imagen}
+              alt={`Categoría ${item.nombre}`}
+              className={styles.img}
+              loading="lazy"
+            />
             <h3>{item.nombre}</h3>
             <p>{item.descripcion}</p>
             <Link to={`/categorias#${item.categoria}`} className={styles.btn}>

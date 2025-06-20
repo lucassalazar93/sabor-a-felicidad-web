@@ -1,32 +1,39 @@
 import { useState, useEffect } from "react";
 import styles from "./BannerCategorias.module.css";
 
-const imagenesDesktop = [
-  "/images/banner/banner1.png",
-  "/images/banner/banner4.png",
-  "/images/banner/banner3.png",
-  "/images/banner/banner2.png",
-  "/images/banner/banner5.png",
-];
+// 📁 IMPORTACIONES DESKTOP
+import banner1 from "@/assets/banner/banner1.png";
+import banner2 from "@/assets/banner/banner2.png";
+import banner3 from "@/assets/banner/banner3.png";
+import banner4 from "@/assets/banner/banner4.png";
+import banner5 from "@/assets/banner/banner5.png";
 
+// 📱 IMPORTACIONES MOBILE
+import bannerMobile1 from "@/assets/banner/bannerCelular1.png";
+import bannerMobile2 from "@/assets/banner/bannerCelular2.png";
+import bannerMobile3 from "@/assets/banner/bannerCelular3.png";
+import bannerMobile4 from "@/assets/banner/bannerCelular4.png";
+import bannerMobile5 from "@/assets/banner/bannerCelular5.png";
+
+// 📚 ARRAYS ORGANIZADOS
+const imagenesDesktop = [banner1, banner4, banner3, banner2, banner5];
 const imagenesMobile = [
-  "/images/banner/bannerCelular1.png",
-  "/images/banner/bannerCelular2.png",
-  "/images/banner/bannerCelular3.png",
-  "/images/banner/bannerCelular4.png",
-  "/images/banner/bannerCelular5.png",
+  bannerMobile1,
+  bannerMobile2,
+  bannerMobile3,
+  bannerMobile4,
+  bannerMobile5,
 ];
 
 const BannerCategorias = () => {
   const [indiceActual, setIndiceActual] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detectar si es dispositivo móvil
+  // Detectar si es móvil
   useEffect(() => {
     const actualizarTamano = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     actualizarTamano();
     window.addEventListener("resize", actualizarTamano);
     return () => window.removeEventListener("resize", actualizarTamano);
@@ -34,7 +41,7 @@ const BannerCategorias = () => {
 
   const imagenes = isMobile ? imagenesMobile : imagenesDesktop;
 
-  // Rotación automática del banner
+  // Auto-rotación del banner
   useEffect(() => {
     const intervalo = setInterval(() => {
       setIndiceActual((prev) => (prev + 1) % imagenes.length);
@@ -65,7 +72,7 @@ const BannerCategorias = () => {
         ))}
       </div>
 
-      {/* Puntos de navegación solo en desktop */}
+      {/* Navegación desktop */}
       {!isMobile && (
         <div className={styles.puntos}>
           {imagenes.map((_, idx) => (
@@ -81,7 +88,7 @@ const BannerCategorias = () => {
         </div>
       )}
 
-      {/* Texto flotante animado en móvil */}
+      {/* Indicador móvil */}
       {isMobile && (
         <div className={styles.indicadorDeslizamiento}>
           Desliza para ver más <span className={styles.flecha}>⬇️</span>

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import styles from "./QuienesSomos.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import imagenQuienes from "@/assets/quienes-somos.png"; // ✅ Importación profesional
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,9 +48,10 @@ const QuienesSomos = () => {
       </div>
       <div className={styles.imageContainer}>
         <img
-          src="/images/quienes-somos.png"
+          src={imagenQuienes}
           alt="Caja de desayuno empresarial"
           className={styles.image}
+          loading="lazy"
         />
       </div>
     </section>

@@ -3,41 +3,50 @@ import { useEffect } from "react";
 import AOS from "aos";
 import styles from "./CelebracionesEspeciales.module.css";
 
+// ✅ Importación profesional de imágenes
+import ocasion1 from "@/assets/ocasiones/ocasiones1.png";
+import ocasion2 from "@/assets/ocasiones/ocasiones2.png";
+import ocasion3 from "@/assets/ocasiones/ocasiones3.png";
+import ocasion4 from "@/assets/ocasiones/ocasiones4.png";
+import ocasion5 from "@/assets/ocasiones/ocasiones5.png";
+import ocasion6 from "@/assets/ocasiones/ocasiones6.png";
+
+// ✅ Array de tarjetas con imágenes importadas correctamente
 const tarjetas = [
   {
     titulo: "Navidad",
     activa: false,
-    img: "/images/ocasiones/ocasiones6.png",
+    img: ocasion6,
     texto: "Dulces y cenas mágicas para compartir en familia.",
   },
   {
     titulo: "Día del Padre",
     activa: false,
-    img: "/images/ocasiones/ocasiones1.png",
+    img: ocasion1,
     texto: "Regalos que saben a orgullo y gratitud.",
   },
   {
     titulo: "Día de la Madre",
     activa: false,
-    img: "/images/ocasiones/ocasiones2.png",
+    img: ocasion2,
     texto: "Delicias que expresan todo tu amor.",
   },
   {
     titulo: "Día de la Mujer",
     activa: false,
-    img: "/images/ocasiones/ocasiones3.png",
+    img: ocasion3,
     texto: "Celebramos su esencia con detalles únicos.",
   },
   {
     titulo: "Día del Hombre",
     activa: false,
-    img: "/images/ocasiones/ocasiones4.png",
+    img: ocasion4,
     texto: "Sabores con carácter para sorprender.",
   },
   {
     titulo: "Amor y Amistad",
     activa: false,
-    img: "/images/ocasiones/ocasiones5.png",
+    img: ocasion5,
     texto: "Detalles dulces para regalar con el corazón.",
   },
 ];
@@ -62,7 +71,7 @@ const CelebracionesEspeciales = () => {
             data-aos="zoom-in-up"
             data-aos-delay={i * 100}
           >
-            <img src={t.img} alt={t.titulo} />
+            <img src={t.img} alt={t.titulo} loading="lazy" />
             <h3>{t.titulo}</h3>
             <p>{t.texto}</p>
             {t.activa ? (

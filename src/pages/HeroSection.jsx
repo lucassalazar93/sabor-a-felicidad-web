@@ -1,26 +1,42 @@
+// src/components/HeroSection.jsx
 import { useEffect, useState } from "react";
 import styles from "./HeroSection.module.css";
 
+// ✅ IMPORTACIÓN de imágenes desktop
+import imgDesayuno from "@/assets/desayuno.png";
+import imgPostres from "@/assets/postres.png";
+import imgSnacks from "@/assets/snakc.png"; // nombre real en carpeta
+import imgTipica from "@/assets/tipica.png";
+import imgGourmet from "@/assets/gourmet.png";
+
+// ✅ IMPORTACIÓN de imágenes mobile
+import mobile1 from "@/assets/bannerMovil1.png";
+import mobile2 from "@/assets/bannerMovil2.png";
+import mobile3 from "@/assets/bannerMovil3.png";
+import mobile4 from "@/assets/bannerMovil4.png";
+import mobile5 from "@/assets/bannerMovil5.png";
+
+// ✅ Slides con imágenes importadas
 const slides = [
   {
-    image: "/images/desayuno.png",
-    imageMobile: "/images/bannerMovil3.png",
+    image: imgDesayuno,
+    imageMobile: mobile3,
     title: "DESAYUNOS",
     subtitle: "Desayunos que abrazan el alma,\nHechos con amor.",
     buttonText: "Ver desayunos 🍳",
     buttonLink: "#desayunos",
   },
   {
-    image: "/images/postres.png",
-    imageMobile: "/images/bannerMovil4.png",
+    image: imgPostres,
+    imageMobile: mobile4,
     title: "POSTRES",
     subtitle: "Un dulce para cada emoción,\nDisfrútalo con el alma.",
     buttonText: "Explorar postres 🍰",
     buttonLink: "#postres",
   },
   {
-    image: "/images/snakc.png",
-    imageMobile: "/images/bannerMovil5.png",
+    image: imgSnacks,
+    imageMobile: mobile5,
     title: "SNACKS",
     subtitle:
       "Desde un antojo hasta un gran evento,\nTenemos el sabor perfecto para ti.",
@@ -28,16 +44,16 @@ const slides = [
     buttonLink: "#cotizar",
   },
   {
-    image: "/images/tipica.png",
-    imageMobile: "/images/bannerMovil2.png",
+    image: imgTipica,
+    imageMobile: mobile2,
     title: "TÍPICA",
     subtitle: "Tradición colombiana servida con amor, sabor y mucha historia.",
     buttonText: "Ver platos típicos 🍛",
     buttonLink: "#cotizar",
   },
   {
-    image: "/images/gourmet.png",
-    imageMobile: "/images/bannerMovil1.png",
+    image: imgGourmet,
+    imageMobile: mobile1,
     title: "GOURMET",
     subtitle:
       "Platos exclusivos, presentaciones impecables, sabor que impresiona.",
@@ -51,12 +67,14 @@ const HeroSection = () => {
   const [previous, setPrevious] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  // ✅ Actualiza el estado si cambia el tamaño de la ventana
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // ✅ Ciclo automático de carrusel
   useEffect(() => {
     const interval = setInterval(() => {
       setPrevious(current);
@@ -72,14 +90,18 @@ const HeroSection = () => {
 
   return (
     <section id="inicio" className={styles.hero}>
+      {/* Imagen actual */}
       <div
         className={`${styles.bg} ${styles.fadeIn}`}
         style={{ backgroundImage: `url(${getImage(current)})` }}
       />
+      {/* Imagen anterior para transición suave */}
       <div
         className={`${styles.bg} ${styles.fadeOut}`}
         style={{ backgroundImage: `url(${getImage(previous)})` }}
       />
+
+      {/* Contenido superpuesto */}
       <div className={styles.overlay}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>{title}</h1>
@@ -96,6 +118,7 @@ const HeroSection = () => {
           </a>
         </div>
 
+        {/* Puntos de navegación */}
         <div className={styles.dots}>
           {slides.map((_, i) => (
             <span
