@@ -25,11 +25,11 @@
   filter: drop-shadow(0 8px 20px rgba(125, 91, 109, 0.6));
 }
 
-/* 🧠 Tooltip ahora más cerca de la cabeza */
+/* 💬 Tooltip más cerca de la cabeza */
 .tooltip {
   position: absolute;
   top: 80px;
-  right: 75%; /* ← Ajustado: mueve el texto más hacia la izquierda */
+  right: 75%;
   background: #ffe4f6;
   color: #4a4a4a;
   font-family: var(--font-body, "Quicksand", sans-serif);
@@ -58,5 +58,25 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* 📱 Ajustes para pantallas móviles */
+@media (max-width: 480px) {
+  .avatarImg {
+    height: 130px;
+  }
+
+  .tooltip {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    top: 55px;
+    right: 60%;
+    max-width: 180px;
+  }
+
+  .wrapper {
+    bottom: 8px;
+    right: 8px;
   }
 }
