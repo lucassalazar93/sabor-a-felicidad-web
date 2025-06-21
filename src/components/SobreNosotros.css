@@ -118,3 +118,30 @@
     max-width: 280px;
   }
 }
+
+.historia-expandida {
+  margin-top: 2rem;
+  background-color: #fff5f8;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(248, 125, 169, 0.15);
+  transition: all 0.4s ease-in-out;
+}
+
+.historia-expandida ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.historia-expandida li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.btn-sobre.cerrar {
+  margin-top: 1.5rem;
+  background-color: #fff;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  font-weight: bold;
+}
