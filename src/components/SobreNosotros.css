@@ -1,0 +1,120 @@
+/* ======= SOBRE NOSOTROS ======= */
+.sobre-nosotros {
+  background: #fff5f7;
+  padding: 5rem 1.5rem;
+  font-family: var(--font-body, "Quicksand", sans-serif);
+  overflow: hidden;
+}
+
+.container-nosotros {
+  max-width: 1240px;
+  margin: auto;
+  display: flex;
+  gap: 2rem; /* reducido de 3rem a 2rem */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* TEXTO */
+.nosotros-texto {
+  flex: 1;
+  min-width: 320px;
+  padding-right: 1rem;
+}
+
+.nosotros-texto h2 {
+  font-family: var(--font-title, "Playfair Display", serif);
+  font-size: 2.5rem;
+  color: #a63f61;
+  margin-bottom: 1.4rem;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.nosotros-texto p {
+  font-size: 1.1rem;
+  color: #3a2e2e;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.nosotros-texto ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.nosotros-texto ul li {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: #7a4141;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* BOTÓN */
+.btn-sobre {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  background-color: #f87da9;
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(248, 125, 169, 0.3);
+}
+
+.btn-sobre:hover {
+  background-color: #ff5d85;
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(255, 93, 133, 0.4);
+}
+
+/* IMAGEN */
+.nosotros-imagen {
+  flex: 1;
+  text-align: center;
+  padding-left: 1rem;
+}
+
+.nosotros-imagen img {
+  max-width: 320px; /* un poco más reducido */
+  border-radius: 2rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08); /* más intensidad */
+  transition: transform 0.3s ease;
+}
+
+.nosotros-imagen img:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container-nosotros {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .nosotros-texto {
+    padding: 0;
+  }
+
+  .nosotros-texto h2 {
+    font-size: 2rem;
+  }
+
+  .btn-sobre {
+    margin-top: 1rem;
+  }
+
+  .nosotros-imagen {
+    padding: 0;
+  }
+
+  .nosotros-imagen img {
+    max-width: 280px;
+  }
+}

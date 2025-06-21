@@ -1,4 +1,3 @@
-// src/pages/Ofrecemos.jsx
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
@@ -58,32 +57,59 @@ const Ofrecemos = () => {
     AOS.init({ duration: 900, once: true });
   }, []);
 
+  const scrollSlider = (direction) => {
+    const container = document.getElementById("ofrecemosSlider");
+    if (container) {
+      container.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className={styles.ofrecemos} id="ofrecemos">
       <h2 className={styles.title} data-aos="fade-up">
         Elige tu sabor favorito
       </h2>
-      <div className={styles.grid}>
-        {opciones.map((item, index) => (
-          <div
-            className={styles.card}
-            key={index}
-            data-aos="fade-up"
-            data-aos-delay={index * 100}
-          >
-            <img
-              src={item.imagen}
-              alt={`Categoría ${item.nombre}`}
-              className={styles.img}
-              loading="lazy"
-            />
-            <h3>{item.nombre}</h3>
-            <p>{item.descripcion}</p>
-            <Link to={`/categorias#${item.categoria}`} className={styles.btn}>
-              Ver más
-            </Link>
-          </div>
-        ))}
+
+      <div className={styles.sliderWrapper}>
+        <button
+          className={styles.arrowLeft}
+          onClick={() => scrollSlider("left")}
+        >
+          ◀︎
+        </button>
+
+        <div className={styles.grid} id="ofrecemosSlider">
+          {opciones.map((item, index) => (
+            <div
+              className={styles.card}
+              key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <img
+                src={item.imagen}
+                alt={`Categoría ${item.nombre}`}
+                className={styles.img}
+                loading="lazy"
+              />
+              <h3>{item.nombre}</h3>
+              <p>{item.descripcion}</p>
+              <Link to={`/categorias#${item.categoria}`} className={styles.btn}>
+                Ver más
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className={styles.arrowRight}
+          onClick={() => scrollSlider("right")}
+        >
+          ▶︎
+        </button>
       </div>
     </section>
   );

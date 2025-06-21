@@ -6,6 +6,7 @@ import Ofrecemos from "../../pages/Ofrecemos";
 import PorQueElegirnos from "../../pages/PorQueElegirnos";
 import Testimonios from "../Testimonios";
 import CelebracionesEspeciales from "../CelebracionesEspeciales"; // ✅ NUEVA SECCIÓN
+import SobreNosotros from "@/components/SobreNosotros";
 
 import WhatsappAvatar from "../WhatsappAvatar";
 import FormularioCotizacion from "@/components/FormularioCotizacion";
@@ -16,6 +17,7 @@ const LandingPage = () => {
       <Navbar />
       <HeroSection />
       <QuienesSomos />
+      <SobreNosotros />
       <Ofrecemos />
       <CelebracionesEspeciales />
       <PorQueElegirnos />

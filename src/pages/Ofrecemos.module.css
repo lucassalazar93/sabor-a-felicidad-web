@@ -2,6 +2,7 @@
   padding: 5rem 2rem;
   background-color: #ffffff;
   text-align: center;
+  position: relative;
 }
 
 .title {
@@ -11,30 +12,50 @@
   margin-bottom: 3rem;
 }
 
+/* Estilo del contenedor scroll solo en móviles */
+.scrollContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Estilo base del grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   justify-items: center;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
+  transition: all 0.3s ease;
 }
 
-/* Responsivo para tablets */
+/* Tablets */
 @media (max-width: 960px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Responsivo para móviles */
-@media (max-width: 600px) {
+/* 📱 Móviles - modo carrusel horizontal */
+@media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr; /* 1 columna en móvil */
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .card {
+    scroll-snap-align: center;
+    flex: 0 0 80%;
+    max-width: 80%;
   }
 }
 
+/* Card individual */
 .card {
   background-color: #fff5f8;
   border-radius: 20px;
@@ -88,4 +109,37 @@
 .btn:hover {
   background-color: var(--color-secondary);
   transform: scale(1.05);
+}
+
+/* 👈 Flechas flotantes */
+.arrowLeft,
+.arrowRight {
+  display: none; /* Por defecto ocultas */
+}
+
+@media (max-width: 768px) {
+  .arrowLeft,
+  .arrowRight {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 50%;
+    border: none;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .arrowLeft {
+    left: 0.5rem;
+  }
+
+  .arrowRight {
+    right: 0.5rem;
+  }
 }

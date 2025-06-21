@@ -1,20 +1,27 @@
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import logo from "@/assets/logo.svg"; // ✅ Importación correcta
+import logo from "@/assets/logo.svg";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loaded, setLoaded] = useState(false); // para animación
 
   useEffect(() => {
+    // Detectar scroll
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+
+    // Activar animación de entrada
+    setTimeout(() => {
+      setLoaded(true);
+    }, 100);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Scroll suave + cerrar menú móvil
   const handleNavigation = (e, id) => {
     e.preventDefault();
     const section = document.querySelector(id);
@@ -27,15 +34,21 @@ const Navbar = () => {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
+        {/* Branding: Logo + Nombre con animación */}
         <a href="#inicio" onClick={(e) => handleNavigation(e, "#inicio")}>
-          <img
-            src={logo}
-            alt="Sabor a Felicidad - Logo"
-            className={styles.logo}
-          />
+          <div className={`${styles.branding} ${loaded ? styles.loaded : ""}`}>
+            <img
+              src={logo}
+              alt="Sabor a Felicidad - Logo"
+              className={styles.logo}
+            />
+            {!scrolled && (
+              <span className={styles.brandText}>SABOR A FELICIDAD</span>
+            )}
+          </div>
         </a>
 
-        {/* Links principales */}
+        {/* Menú principal */}
         <ul
           className={`${styles.navLinks} ${menuOpen ? styles.mobileOpen : ""}`}
         >
@@ -65,21 +78,21 @@ const Navbar = () => {
               Contacto
             </a>
           </li>
+          {/* Solo móvil */}
           <li className={styles.contactoMobile}>
             <a href="tel:+573507881893">📞 350 788 18 93</a>
           </li>
         </ul>
 
-        {/* Teléfono visible solo en escritorio */}
+        {/* Teléfono en escritorio */}
         <div className={styles.contacto}>
           <a href="tel:+573507881893">📞 350 788 18 93</a>
         </div>
 
-        {/* Menú hamburguesa móvil */}
+        {/* Menú hamburguesa */}
         <div
           className={styles.burger}
           onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Abrir menú de navegación"
         >
           <div className={`${styles.bar} ${menuOpen ? styles.bar1 : ""}`} />
           <div className={`${styles.bar} ${menuOpen ? styles.bar2 : ""}`} />
