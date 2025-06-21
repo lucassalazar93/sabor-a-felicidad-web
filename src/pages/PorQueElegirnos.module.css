@@ -3,12 +3,13 @@
   padding: 6rem 2rem;
   text-align: center;
   overflow-x: hidden;
+  position: relative;
 }
 
 .titulo {
   font-family: var(--font-title);
   font-size: 2.6rem;
-  color: var(--color-primary); /* <- CAMBIO A COLOR ROSA */
+  color: var(--color-primary);
   margin-bottom: 3rem;
   position: relative;
 }
@@ -23,15 +24,42 @@
   border-radius: 2px;
 }
 
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid en desktop */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 0 1rem;
+  justify-items: center;
+  transition: all 0.3s ease;
 }
 
+/* Carrusel horizontal en móviles */
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .card {
+    scroll-snap-align: center;
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
+}
+
+/* Tarjetas */
 .card {
   background: #fff5f8;
   border-radius: 16px;
@@ -52,6 +80,7 @@
   box-shadow: 0 16px 30px rgba(248, 125, 169, 0.15);
 }
 
+/* Ícono */
 .icono {
   font-size: 2.6rem;
   color: var(--color-primary);
@@ -63,6 +92,7 @@
   transform: scale(1.1);
 }
 
+/* Título y texto */
 .card h3 {
   font-size: 1.3rem;
   font-family: var(--font-body);
@@ -80,7 +110,40 @@
   margin: 0;
 }
 
-/* Responsive */
+/* Flechas para el carrusel móvil */
+.arrowLeft,
+.arrowRight {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .arrowLeft,
+  .arrowRight {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 50%;
+    border: none;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .arrowLeft {
+    left: 0.5rem;
+  }
+
+  .arrowRight {
+    right: 0.5rem;
+  }
+}
+
+/* Ajustes responsive */
 @media (max-width: 768px) {
   .titulo {
     font-size: 2.1rem;

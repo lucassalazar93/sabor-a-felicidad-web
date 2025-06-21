@@ -10,7 +10,7 @@
   max-width: 1240px;
   margin: auto;
   display: flex;
-  gap: 2rem; /* reducido de 3rem a 2rem */
+  gap: 2rem;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -53,7 +53,7 @@
   gap: 0.4rem;
 }
 
-/* BOTÓN */
+/* BOTÓN ORIGINAL */
 .btn-sobre {
   display: inline-block;
   padding: 0.9rem 1.8rem;
@@ -73,6 +73,25 @@
   box-shadow: 0 8px 24px rgba(255, 93, 133, 0.4);
 }
 
+/* BOTÓN SECUNDARIO (ENLACE A RECETAS) */
+.btn-secundario {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #f87da9;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(248, 125, 169, 0.25);
+}
+
+.btn-secundario:hover {
+  background-color: #e05d91;
+}
+
 /* IMAGEN */
 .nosotros-imagen {
   flex: 1;
@@ -81,9 +100,9 @@
 }
 
 .nosotros-imagen img {
-  max-width: 320px; /* un poco más reducido */
+  max-width: 320px;
   border-radius: 2rem;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08); /* más intensidad */
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
 
@@ -91,34 +110,7 @@
   transform: scale(1.03) rotate(-1deg);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .container-nosotros {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .nosotros-texto {
-    padding: 0;
-  }
-
-  .nosotros-texto h2 {
-    font-size: 2rem;
-  }
-
-  .btn-sobre {
-    margin-top: 1rem;
-  }
-
-  .nosotros-imagen {
-    padding: 0;
-  }
-
-  .nosotros-imagen img {
-    max-width: 280px;
-  }
-}
-
+/* HISTORIA EXPANDIDA */
 .historia-expandida {
   margin-top: 2rem;
   background-color: #fff5f8;
@@ -138,10 +130,80 @@
   font-weight: 500;
 }
 
+/* BOTÓN CERRAR HISTORIA */
 .btn-sobre.cerrar {
   margin-top: 1.5rem;
   background-color: #fff;
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
+  border: 2px solid var(--color-primary, #f87da9);
+  color: var(--color-primary, #f87da9);
   font-weight: bold;
+}
+
+/* TEXTO PARA ABRIR HISTORIA */
+.abrir-historia,
+.cerrar-historia {
+  margin-top: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #a26bcf;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.abrir-historia:hover,
+.cerrar-historia:hover {
+  color: #6c3fa9;
+}
+
+/* FLECHA ANIMADA */
+.flecha {
+  margin-left: 0.4rem;
+  font-size: 1.2rem;
+  animation: salto 1.2s infinite;
+}
+
+@keyframes salto {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container-nosotros {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .nosotros-texto {
+    padding: 0;
+  }
+
+  .nosotros-texto h2 {
+    font-size: 2rem;
+  }
+
+  .btn-sobre,
+  .btn-secundario {
+    margin-top: 1rem;
+  }
+
+  .nosotros-imagen {
+    padding: 0;
+  }
+
+  .nosotros-imagen img {
+    max-width: 280px;
+  }
+}
+
+/* NUEVO CONTENEDOR CENTRADO PARA BOTÓN */
+.btn-texto-centro {
+  margin-top: 2rem;
+  text-align: center;
 }

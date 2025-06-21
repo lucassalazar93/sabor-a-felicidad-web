@@ -31,6 +31,7 @@ const beneficios = [
 
 const PorQueElegirnos = () => {
   const sectionRef = useRef(null);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     const context = gsap.context(() => {
@@ -55,8 +56,18 @@ const PorQueElegirnos = () => {
       });
     }, sectionRef);
 
-    return () => context.revert(); // Limpieza
+    return () => context.revert();
   }, []);
+
+  const scrollSlider = (direction) => {
+    const container = sliderRef.current;
+    if (container) {
+      container.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <section
@@ -65,14 +76,31 @@ const PorQueElegirnos = () => {
       ref={sectionRef}
     >
       <h2 className={styles.titulo}>¿Por qué elegirnos?</h2>
-      <div className={styles.grid}>
-        {beneficios.map((item, i) => (
-          <div key={i} className={styles.card}>
-            <div className={styles.icono}>{item.icono}</div>
-            <h3>{item.titulo}</h3>
-            <p>{item.descripcion}</p>
-          </div>
-        ))}
+
+      <div className={styles.sliderWrapper}>
+        <button
+          className={styles.arrowLeft}
+          onClick={() => scrollSlider("left")}
+        >
+          ◀︎
+        </button>
+
+        <div className={styles.grid} ref={sliderRef}>
+          {beneficios.map((item, i) => (
+            <div key={i} className={styles.card}>
+              <div className={styles.icono}>{item.icono}</div>
+              <h3>{item.titulo}</h3>
+              <p>{item.descripcion}</p>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className={styles.arrowRight}
+          onClick={() => scrollSlider("right")}
+        >
+          ▶︎
+        </button>
       </div>
     </section>
   );

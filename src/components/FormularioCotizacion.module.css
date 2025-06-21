@@ -1,25 +1,27 @@
 .formWrapper {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
-  padding: 3rem;
+  padding: 3rem 2rem;
   border-radius: 1.5rem;
   max-width: 700px;
   margin: 3rem auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   text-align: center;
+  font-family: var(--font-body);
 }
 
 .titulo {
   font-family: var(--font-title);
-  font-size: 2.2rem;
+  font-size: 2.3rem;
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
 
 .subtitulo {
-  font-family: var(--font-body);
   font-size: 1.1rem;
   margin-bottom: 2rem;
   color: var(--color-text-main);
+  font-family: var(--font-body);
 }
 
 .form {
@@ -36,6 +38,15 @@
   border: 1px solid #ccc;
   font-size: 1rem;
   font-family: var(--font-body);
+  background-color: #ffffff;
+  transition: border 0.2s ease;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
 }
 
 .botonEnviar {
@@ -46,9 +57,54 @@
   border-radius: 12px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: 0.3s ease;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-family: var(--font-ui);
 }
 
 .botonEnviar:hover {
   background-color: var(--color-secondary);
+}
+
+.alerta {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: #8a4a5f;
+  background-color: #fff0f4;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+}
+
+/* Confirmación */
+.confirmacion {
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formWrapper {
+    padding: 2rem 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .subtitulo {
+    font-size: 1rem;
+  }
+
+  .form input,
+  .form select,
+  .form textarea {
+    font-size: 0.95rem;
+  }
+
+  .botonEnviar {
+    font-size: 1rem;
+  }
 }

@@ -1,4 +1,3 @@
-// src/components/CelebracionesEspeciales.jsx
 import { useEffect } from "react";
 import AOS from "aos";
 import styles from "./CelebracionesEspeciales.module.css";
@@ -11,7 +10,6 @@ import ocasion4 from "@/assets/ocasiones/ocasiones4.png";
 import ocasion5 from "@/assets/ocasiones/ocasiones5.png";
 import ocasion6 from "@/assets/ocasiones/ocasiones6.png";
 
-// ✅ Array de tarjetas con imágenes importadas correctamente
 const tarjetas = [
   {
     titulo: "Navidad",
@@ -56,31 +54,64 @@ const CelebracionesEspeciales = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
+  const scrollSlider = (direction) => {
+    const container = document.getElementById("celebracionesSlider");
+    if (container) {
+      container.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className={styles.celebraciones} id="celebraciones">
-      <h2 className={styles.titulo}> Celebraciones Especiales</h2>
+      <h2 className={styles.titulo}>🎉 Celebraciones Especiales</h2>
       <p className={styles.subtitulo}>
         Haz cada fecha inolvidable con nuestros sabores únicos.
       </p>
 
-      <div className={styles.grid}>
-        {tarjetas.map((t, i) => (
-          <div
-            key={i}
-            className={`${styles.card} ${!t.activa ? styles.desactivada : ""}`}
-            data-aos="zoom-in-up"
-            data-aos-delay={i * 100}
-          >
-            <img src={t.img} alt={t.titulo} loading="lazy" />
-            <h3>{t.titulo}</h3>
-            <p>{t.texto}</p>
-            {t.activa ? (
-              <button className={styles.boton}>Ver más</button>
-            ) : (
-              <span className={styles.label}>Próximamente</span>
-            )}
-          </div>
-        ))}
+      <div className={styles.sliderWrapper}>
+        <button
+          className={styles.arrowLeft}
+          onClick={() => scrollSlider("left")}
+        >
+          ◀︎
+        </button>
+
+        <div className={styles.grid} id="celebracionesSlider">
+          {tarjetas.map((t, i) => (
+            <div
+              key={i}
+              className={`${styles.card} ${
+                !t.activa ? styles.desactivada : ""
+              }`}
+              data-aos="zoom-in-up"
+              data-aos-delay={i * 100}
+            >
+              <img
+                src={t.img}
+                alt={t.titulo}
+                className={styles.img}
+                loading="lazy"
+              />
+              <h3>{t.titulo}</h3>
+              <p>{t.texto}</p>
+              {t.activa ? (
+                <button className={styles.boton}>Ver más</button>
+              ) : (
+                <span className={styles.label}>Próximamente</span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <button
+          className={styles.arrowRight}
+          onClick={() => scrollSlider("right")}
+        >
+          ▶︎
+        </button>
       </div>
     </section>
   );
