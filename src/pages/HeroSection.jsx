@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import styles from "./HeroSection.module.css";
 
-// ✅ IMPORTACIÓN de imágenes desktop
+// Imágenes desktop
 import imgDesayuno from "@/assets/desayuno.jpg";
 import imgPostres from "@/assets/postres.jpg";
-import imgSnacks from "@/assets/snack.jpeg"; // ← esta es la que tienes realmente
+import imgSnacks from "@/assets/snack.jpeg";
 import imgTipica from "@/assets/tipica.png";
 import imgGourmet from "@/assets/gourmet.jpg";
 
-// ✅ IMPORTACIÓN de imágenes mobile
+// Imágenes mobile
 import mobile1 from "@/assets/bannerMovil1.png";
 import mobile2 from "@/assets/bannerMovil2.png";
 import mobile3 from "@/assets/bannerMovil3.png";
 import mobile4 from "@/assets/bannerMovil4.png";
 import mobile5 from "@/assets/bannerMovil5.png";
 
-// Slides
+// Data de slides
 const slides = [
   {
     image: imgDesayuno,
@@ -86,6 +86,7 @@ const HeroSection = () => {
 
   return (
     <section id="inicio" className={styles.hero}>
+      {/* Fondos con transición */}
       <div
         className={`${styles.bg} ${styles.fadeIn}`}
         style={{ backgroundImage: `url(${getImage(current)})` }}
@@ -95,6 +96,7 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${getImage(previous)})` }}
       />
 
+      {/* Contenido de texto y CTA */}
       <div className={styles.overlay}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>{title}</h1>
@@ -110,23 +112,22 @@ const HeroSection = () => {
             {buttonText}
           </a>
         </div>
+      </div>
 
-        <div className={styles.dots}>
-          {slides.map((_, i) => (
-            <span
-              key={i}
-              className={`${styles.dot} ${
-                i === current ? styles.activeDot : ""
-              }`}
-              onClick={() => {
-                setPrevious(current);
-                setCurrent(i);
-              }}
-            >
-              ●
-            </span>
-          ))}
-        </div>
+      {/* Navegación de puntos */}
+      <div className={styles.dots}>
+        {slides.map((_, i) => (
+          <span
+            key={i}
+            className={`${styles.dot} ${i === current ? styles.activeDot : ""}`}
+            onClick={() => {
+              setPrevious(current);
+              setCurrent(i);
+            }}
+          >
+            ●
+          </span>
+        ))}
       </div>
     </section>
   );

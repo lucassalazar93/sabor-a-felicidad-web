@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaClock, FaUtensils, FaGift, FaHeart } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -32,6 +32,8 @@ const beneficios = [
 const PorQueElegirnos = () => {
   const sectionRef = useRef(null);
   const sliderRef = useRef(null);
+  const [mostrarFlechas, setMostrarFlechas] = useState(true);
+  const [animacionActiva, setAnimacionActiva] = useState(true);
 
   useEffect(() => {
     const context = gsap.context(() => {
@@ -59,6 +61,25 @@ const PorQueElegirnos = () => {
     return () => context.revert();
   }, []);
 
+  // Detecta interacción para detener animación y ocultar flechas
+  useEffect(() => {
+    const container = sliderRef.current;
+    const handleInteraccion = () => {
+      setMostrarFlechas(false);
+      setAnimacionActiva(false);
+      container?.removeEventListener("scroll", handleInteraccion);
+      container?.removeEventListener("touchstart", handleInteraccion);
+    };
+
+    container?.addEventListener("scroll", handleInteraccion);
+    container?.addEventListener("touchstart", handleInteraccion);
+
+    return () => {
+      container?.removeEventListener("scroll", handleInteraccion);
+      container?.removeEventListener("touchstart", handleInteraccion);
+    };
+  }, []);
+
   const scrollSlider = (direction) => {
     const container = sliderRef.current;
     if (container) {
@@ -78,14 +99,19 @@ const PorQueElegirnos = () => {
       <h2 className={styles.titulo}>¿Por qué elegirnos?</h2>
 
       <div className={styles.sliderWrapper}>
-        <button
-          className={styles.arrowLeft}
-          onClick={() => scrollSlider("left")}
-        >
-          ◀︎
-        </button>
+        {mostrarFlechas && (
+          <button
+            className={styles.arrowLeft}
+            onClick={() => scrollSlider("left")}
+          >
+            ◀︎
+          </button>
+        )}
 
-        <div className={styles.grid} ref={sliderRef}>
+        <div
+          ref={sliderRef}
+          className={`${styles.grid} ${!animacionActiva ? styles.parada : ""}`}
+        >
           {beneficios.map((item, i) => (
             <div key={i} className={styles.card}>
               <div className={styles.icono}>{item.icono}</div>
@@ -95,12 +121,14 @@ const PorQueElegirnos = () => {
           ))}
         </div>
 
-        <button
-          className={styles.arrowRight}
-          onClick={() => scrollSlider("right")}
-        >
-          ▶︎
-        </button>
+        {mostrarFlechas && (
+          <button
+            className={styles.arrowRight}
+            onClick={() => scrollSlider("right")}
+          >
+            ▶︎
+          </button>
+        )}
       </div>
     </section>
   );

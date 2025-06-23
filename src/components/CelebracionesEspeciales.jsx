@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
+import "aos/dist/aos.css";
 import styles from "./CelebracionesEspeciales.module.css";
 
-// ✅ Importación profesional de imágenes
+// ✅ Imágenes importadas
 import ocasion1 from "@/assets/ocasiones/ocasiones1.png";
 import ocasion2 from "@/assets/ocasiones/ocasiones2.png";
 import ocasion3 from "@/assets/ocasiones/ocasiones3.png";
@@ -50,8 +51,28 @@ const tarjetas = [
 ];
 
 const CelebracionesEspeciales = () => {
+  const [mostrarFlechas, setMostrarFlechas] = useState(true);
+  const [animacionActiva, setAnimacionActiva] = useState(true);
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
+
+    const container = document.getElementById("celebracionesSlider");
+
+    const detenerInteraccion = () => {
+      setMostrarFlechas(false);
+      setAnimacionActiva(false);
+      container?.removeEventListener("scroll", detenerInteraccion);
+      container?.removeEventListener("touchstart", detenerInteraccion);
+    };
+
+    container?.addEventListener("scroll", detenerInteraccion);
+    container?.addEventListener("touchstart", detenerInteraccion);
+
+    return () => {
+      container?.removeEventListener("scroll", detenerInteraccion);
+      container?.removeEventListener("touchstart", detenerInteraccion);
+    };
   }, []);
 
   const scrollSlider = (direction) => {
@@ -72,14 +93,19 @@ const CelebracionesEspeciales = () => {
       </p>
 
       <div className={styles.sliderWrapper}>
-        <button
-          className={styles.arrowLeft}
-          onClick={() => scrollSlider("left")}
-        >
-          ◀︎
-        </button>
+        {mostrarFlechas && (
+          <button
+            className={`${styles.arrowLeft}`}
+            onClick={() => scrollSlider("left")}
+          >
+            ◀︎
+          </button>
+        )}
 
-        <div className={styles.grid} id="celebracionesSlider">
+        <div
+          className={`${styles.grid} ${!animacionActiva ? styles.parada : ""}`}
+          id="celebracionesSlider"
+        >
           {tarjetas.map((t, i) => (
             <div
               key={i}
@@ -106,12 +132,14 @@ const CelebracionesEspeciales = () => {
           ))}
         </div>
 
-        <button
-          className={styles.arrowRight}
-          onClick={() => scrollSlider("right")}
-        >
-          ▶︎
-        </button>
+        {mostrarFlechas && (
+          <button
+            className={`${styles.arrowRight}`}
+            onClick={() => scrollSlider("right")}
+          >
+            ▶︎
+          </button>
+        )}
       </div>
     </section>
   );

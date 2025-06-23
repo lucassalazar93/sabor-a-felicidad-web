@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import styles from "./Testimonios.module.css";
 
 // ✅ Imágenes importadas
@@ -37,13 +38,43 @@ const testimonios = [
 ];
 
 const Testimonios = () => {
+  const sliderTrackRef = useRef(null);
+
+  useEffect(() => {
+    const track = sliderTrackRef.current;
+    let timeout;
+
+    const handleScroll = () => {
+      // Pausa la animación al hacer scroll
+      if (track) {
+        track.style.animationPlayState = "paused";
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          track.style.animationPlayState = "running";
+        }, 2500); // Reactiva la animación después de 2.5s sin movimiento
+      }
+    };
+
+    if (track) {
+      track.addEventListener("wheel", handleScroll);
+      track.addEventListener("touchmove", handleScroll);
+    }
+
+    return () => {
+      if (track) {
+        track.removeEventListener("wheel", handleScroll);
+        track.removeEventListener("touchmove", handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <section className={styles.testimonios} id="testimonios">
       <h2 className={styles.titulo}>Lo que dicen nuestros clientes</h2>
 
       {/* Cinta deslizante */}
       <div className={styles.sliderWrapper}>
-        <div className={styles.sliderTrack}>
+        <div className={styles.sliderTrack} ref={sliderTrackRef}>
           {[...testimonios, ...testimonios].map((t, index) => (
             <div className={styles.card} key={index}>
               <img

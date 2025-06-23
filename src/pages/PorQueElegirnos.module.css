@@ -41,24 +41,6 @@
   transition: all 0.3s ease;
 }
 
-/* Carrusel horizontal en móviles */
-@media (max-width: 768px) {
-  .grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 1rem;
-    padding-bottom: 2rem;
-  }
-
-  .card {
-    scroll-snap-align: center;
-    flex: 0 0 80%;
-    max-width: 80%;
-  }
-}
-
 /* Tarjetas */
 .card {
   background: #fff5f8;
@@ -110,13 +92,43 @@
   margin: 0;
 }
 
-/* Flechas para el carrusel móvil */
+/* 👈 Flechas visibles en móviles */
 .arrowLeft,
 .arrowRight {
   display: none;
 }
 
+/* 🎞️ Auto-scroll solo en móvil */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 768px) {
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    animation: autoScroll 50s linear infinite; /* 🎯 animación activa */
+  }
+
+  .parada {
+    animation: none !important; /* ✋ Detener auto-scroll al interactuar */
+  }
+
+  .card {
+    scroll-snap-align: center;
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
+
   .arrowLeft,
   .arrowRight {
     display: block;
@@ -132,6 +144,7 @@
     z-index: 10;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.4s ease;
   }
 
   .arrowLeft {
@@ -141,10 +154,12 @@
   .arrowRight {
     right: 0.5rem;
   }
-}
 
-/* Ajustes responsive */
-@media (max-width: 768px) {
+  .oculto {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .titulo {
     font-size: 2.1rem;
   }

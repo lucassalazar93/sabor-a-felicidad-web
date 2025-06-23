@@ -12,13 +12,13 @@
   margin-bottom: 3rem;
 }
 
-/* Estilo del contenedor scroll solo en móviles */
+/* Contenedor para scroll en móvil */
 .scrollContainer {
   position: relative;
   overflow: hidden;
 }
 
-/* Estilo base del grid */
+/* Estilo base del grid en desktop */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -37,7 +37,7 @@
   }
 }
 
-/* 📱 Móviles - modo carrusel horizontal */
+/* 📱 Móviles - carrusel horizontal con scroll automático */
 @media (max-width: 768px) {
   .grid {
     display: flex;
@@ -46,6 +46,11 @@
     -webkit-overflow-scrolling: touch;
     padding-bottom: 2rem;
     gap: 1rem;
+    animation: autoScroll 60s linear infinite; /* 🎯 auto-scroll activo */
+  }
+
+  .parada {
+    animation: none !important; /* ✋ detener animación al interactuar */
   }
 
   .card {
@@ -55,7 +60,17 @@
   }
 }
 
-/* Card individual */
+/* 🎞 Animación auto-scroll para móviles */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tarjeta */
 .card {
   background-color: #fff5f8;
   border-radius: 20px;
@@ -111,10 +126,10 @@
   transform: scale(1.05);
 }
 
-/* 👈 Flechas flotantes */
+/* 👉 Flechas móviles */
 .arrowLeft,
 .arrowRight {
-  display: none; /* Por defecto ocultas */
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -133,6 +148,7 @@
     z-index: 10;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.4s ease;
   }
 
   .arrowLeft {
@@ -141,5 +157,11 @@
 
   .arrowRight {
     right: 0.5rem;
+  }
+
+  /* 👇 Ocultar al interactuar */
+  .oculto {
+    opacity: 0;
+    pointer-events: none;
   }
 }

@@ -19,7 +19,7 @@
   margin-bottom: 2.5rem;
 }
 
-/* 📦 Contenedor flexible tipo carrusel */
+/* 📦 Contenedor flexible tipo carrusel en escritorio */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -31,7 +31,22 @@
   transition: all 0.3s ease;
 }
 
-/* Card general */
+/* Para aplicar o detener animación en móvil */
+.parada {
+  animation: none !important;
+}
+
+/* 🎞 Auto-scroll en móviles */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tarjeta general */
 .card {
   background-color: #fff5f8;
   border-radius: 20px;
@@ -114,7 +129,7 @@
   z-index: 1;
 }
 
-/* Flechas (ocultas en desktop, visibles en móvil) */
+/* 👉 Flechas flotantes */
 .arrowLeft,
 .arrowRight {
   display: none;
@@ -128,6 +143,7 @@
     -webkit-overflow-scrolling: touch;
     padding-bottom: 2rem;
     gap: 1rem;
+    animation: autoScroll 50s linear infinite; /* 🎯 Auto-scroll */
   }
 
   .card {
@@ -151,6 +167,7 @@
     z-index: 10;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.4s ease;
   }
 
   .arrowLeft {
@@ -159,6 +176,11 @@
 
   .arrowRight {
     right: 0.5rem;
+  }
+
+  .oculto {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

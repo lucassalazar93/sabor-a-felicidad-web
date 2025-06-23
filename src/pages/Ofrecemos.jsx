@@ -1,10 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "./Ofrecemos.module.css";
 
-// ✅ Importaciones reales desde assets
 import desayunoImg from "@/assets/desayuno.jpg";
 import postresImg from "@/assets/postres.jpg";
 import snacksImg from "@/assets/snack.jpeg";
@@ -12,7 +11,6 @@ import rapidasImg from "@/assets/rapidas.png";
 import tipicaImg from "@/assets/tipica.png";
 import gourmetImg from "@/assets/gourmet.jpg";
 
-// ✅ Opciones con imágenes importadas
 const opciones = [
   {
     nombre: "Desayunos",
@@ -53,8 +51,28 @@ const opciones = [
 ];
 
 const Ofrecemos = () => {
+  const [mostrarFlecha, setMostrarFlecha] = useState(true);
+  const [animacionActiva, setAnimacionActiva] = useState(true);
+
   useEffect(() => {
     AOS.init({ duration: 900, once: true });
+
+    const container = document.getElementById("ofrecemosSlider");
+
+    const handleInteraccion = () => {
+      setMostrarFlecha(false);
+      setAnimacionActiva(false); // ❌ Detiene la animación
+      container?.removeEventListener("scroll", handleInteraccion);
+      container?.removeEventListener("touchstart", handleInteraccion);
+    };
+
+    container?.addEventListener("scroll", handleInteraccion);
+    container?.addEventListener("touchstart", handleInteraccion);
+
+    return () => {
+      container?.removeEventListener("scroll", handleInteraccion);
+      container?.removeEventListener("touchstart", handleInteraccion);
+    };
   }, []);
 
   const scrollSlider = (direction) => {
@@ -69,20 +87,25 @@ const Ofrecemos = () => {
 
   return (
     <section className={styles.ofrecemos} id="ofrecemos">
-      {/* ✅ Aquí se agrega el ID que enlaza con el botón del navbar */}
       <h2 className={styles.title} id="categorias" data-aos="fade-up">
         Elige tu sabor favorito
       </h2>
 
       <div className={styles.sliderWrapper}>
-        <button
-          className={styles.arrowLeft}
-          onClick={() => scrollSlider("left")}
-        >
-          ◀︎
-        </button>
+        {/* Puedes activar la flecha izquierda si lo deseas */}
+        {/* {mostrarFlecha && (
+          <button
+            className={styles.arrowLeft}
+            onClick={() => scrollSlider("left")}
+          >
+            ◀︎
+          </button>
+        )} */}
 
-        <div className={styles.grid} id="ofrecemosSlider">
+        <div
+          id="ofrecemosSlider"
+          className={`${styles.grid} ${!animacionActiva ? styles.parada : ""}`}
+        >
           {opciones.map((item, index) => (
             <div
               className={styles.card}
@@ -105,12 +128,14 @@ const Ofrecemos = () => {
           ))}
         </div>
 
-        <button
-          className={styles.arrowRight}
-          onClick={() => scrollSlider("right")}
-        >
-          ▶︎
-        </button>
+        {mostrarFlecha && (
+          <button
+            className={styles.arrowRight}
+            onClick={() => scrollSlider("right")}
+          >
+            ▶︎
+          </button>
+        )}
       </div>
     </section>
   );
