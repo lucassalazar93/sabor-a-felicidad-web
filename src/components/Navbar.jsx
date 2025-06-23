@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import logo from "@/assets/logo.svg";
@@ -5,37 +6,24 @@ import logo from "@/assets/logo.svg";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [loaded, setLoaded] = useState(false); // para animación
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    // Detectar scroll
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
 
-    // Activar animación de entrada
-    setTimeout(() => {
-      setLoaded(true);
-    }, 100);
+    window.addEventListener("scroll", handleScroll);
+    setTimeout(() => setLoaded(true), 100);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavigation = (e, id) => {
-    e.preventDefault();
-    const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    setMenuOpen(false);
-  };
-
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        {/* Branding: Logo + Nombre con animación */}
-        <a href="#inicio" onClick={(e) => handleNavigation(e, "#inicio")}>
+        {/* Logo */}
+        <a href="/#inicio" onClick={() => setMenuOpen(false)}>
           <div className={`${styles.branding} ${loaded ? styles.loaded : ""}`}>
             <img
               src={logo}
@@ -48,52 +36,47 @@ const Navbar = () => {
           </div>
         </a>
 
-        {/* Menú principal */}
+        {/* Menú navegación */}
         <ul
           className={`${styles.navLinks} ${menuOpen ? styles.mobileOpen : ""}`}
         >
           <li>
-            <a href="#inicio" onClick={(e) => handleNavigation(e, "#inicio")}>
+            <a href="/#inicio" onClick={() => setMenuOpen(false)}>
               Inicio
             </a>
           </li>
           <li>
-            <a
-              href="#categorias"
-              onClick={(e) => handleNavigation(e, "#categorias")}
-            >
+            <a href="/#sobre-nosotros" onClick={() => setMenuOpen(false)}>
+              Nosotros
+            </a>
+          </li>
+          <li>
+            <a href="/#categorias" onClick={() => setMenuOpen(false)}>
               Categorías
             </a>
           </li>
           <li>
-            <a href="#cotizar" onClick={(e) => handleNavigation(e, "#cotizar")}>
+            <a href="/#cotizar" onClick={() => setMenuOpen(false)}>
               Cotizar
             </a>
           </li>
           <li>
-            <a
-              href="#contacto"
-              onClick={(e) => handleNavigation(e, "#contacto")}
-            >
+            <a href="/#contacto" onClick={() => setMenuOpen(false)}>
               Contacto
             </a>
           </li>
-          {/* Solo móvil */}
           <li className={styles.contactoMobile}>
             <a href="tel:+573507881893">📞 350 788 18 93</a>
           </li>
         </ul>
 
-        {/* Teléfono en escritorio */}
+        {/* Teléfono escritorio */}
         <div className={styles.contacto}>
           <a href="tel:+573507881893">📞 350 788 18 93</a>
         </div>
 
         {/* Menú hamburguesa */}
-        <div
-          className={styles.burger}
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
+        <div className={styles.burger} onClick={() => setMenuOpen(!menuOpen)}>
           <div className={`${styles.bar} ${menuOpen ? styles.bar1 : ""}`} />
           <div className={`${styles.bar} ${menuOpen ? styles.bar2 : ""}`} />
           <div className={`${styles.bar} ${menuOpen ? styles.bar3 : ""}`} />

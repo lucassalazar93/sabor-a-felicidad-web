@@ -1,0 +1,152 @@
+.galeriaSection {
+  padding: 4rem 2rem;
+  background-color: #fff5f7;
+  text-align: center;
+  overflow: hidden;
+}
+
+.textoIntro h2 {
+  font-size: 2rem;
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.textoIntro p {
+  font-size: 1.1rem;
+  color: #5e4a4a;
+  margin-bottom: 2rem;
+}
+
+/* Slider horizontal para móvil */
+.sliderContainer {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+/* Tarjeta de imagen */
+.card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 260px;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+  border-radius: 1.2rem;
+}
+
+/* Etiqueta sobre la imagen */
+.etiqueta {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #5a3d3d;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* CTA */
+.cta {
+  margin-top: 2rem;
+}
+
+.cta p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.boton {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #ff5991;
+}
+
+/* Vista de escritorio: 3 columnas fijas en grilla */
+@media (min-width: 768px) {
+  .sliderContainer {
+    overflow: visible;
+  }
+
+  .sliderTrack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: none;
+  }
+
+  .card {
+    width: 100%; /* Adaptar al grid */
+  }
+}
+
+/* Puzzle effect opcional */
+@media (min-width: 768px) {
+  .puzzle1 {
+    transform: translateY(-6px);
+  }
+  .puzzle2 {
+    transform: translateX(8px);
+  }
+  .puzzle3 {
+    transform: translateY(8px);
+  }
+  .puzzle4 {
+    transform: translateX(-6px);
+  }
+  .puzzle5 {
+    transform: translateY(-4px);
+  }
+
+  .card:hover {
+    transform: scale(1.06) !important;
+    z-index: 2;
+  }
+}
+
+/* Animación (opcional en móvil) */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

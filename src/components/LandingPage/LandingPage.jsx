@@ -7,6 +7,7 @@ import PorQueElegirnos from "../../pages/PorQueElegirnos";
 import Testimonios from "../Testimonios";
 import CelebracionesEspeciales from "../CelebracionesEspeciales"; // ✅ NUEVA SECCIÓN
 import SobreNosotros from "@/components/SobreNosotros";
+import GaleriaDestacada from "@/components/GaleriaDestacada";
 
 import WhatsappAvatar from "../WhatsappAvatar";
 import FormularioCotizacion from "@/components/FormularioCotizacion";
@@ -17,6 +18,7 @@ const LandingPage = () => {
       <Navbar />
       <HeroSection />
       <QuienesSomos />
+      <GaleriaDestacada />
       <SobreNosotros />
       <Ofrecemos />
       <CelebracionesEspeciales />

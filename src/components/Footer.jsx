@@ -20,14 +20,36 @@ const Footer = () => {
           <p>Creando experiencias que alimentan el alma.</p>
         </div>
 
-        {/* Contacto */}
-        <div className="footer-contact">
+        {/* Navegación como el Navbar */}
+        <div className="footer-nav">
+          <h4>Enlaces</h4>
+          <ul>
+            <li>
+              <a href="#inicio">Inicio</a>
+            </li>
+            <li>
+              <a href="#sobre-nosotros">Nosotros</a>
+            </li>
+            <li>
+              <a href="#categorias">Categorías</a>
+            </li>
+            <li>
+              <a href="#cotizar">Cotizar</a>
+            </li>
+            <li>
+              <a href="#contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contacto con ID para scroll desde Navbar */}
+        <div className="footer-contact" id="contacto">
           <h4>Contáctanos</h4>
           <p>
             <FaPhoneAlt /> 350 788 18 93
           </p>
           <p>
-            <FaEnvelope /> contacto@saborafelicidad.com
+            <FaEnvelope /> saborafelicidad.nore@gmail.com
           </p>
           <p>
             <FaMapMarkerAlt />{" "}
@@ -45,7 +67,7 @@ const Footer = () => {
         <div className="footer-social">
           <h4>Síguenos</h4>
           <a
-            href="https://instagram.com/tu_instagram"
+            href="https://www.instagram.com/saborafelicidad.nore/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -90,6 +112,16 @@ const Footer = () => {
           <span>•</span>
           <a href="/privacidad">Política de privacidad</a>
         </div>
+        <p className="footer-credit">
+          Diseñado con 🧑‍💻 por{" "}
+          <a
+            href="https://lukbyte-my-website.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Lucas Salazar Villa — Fundador de Lukbyte
+          </a>
+        </p>
       </div>
     </footer>
   );

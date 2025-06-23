@@ -24,6 +24,7 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
     correo: "",
     telefono: "",
     fecha: "",
+    hora: "",
     porciones: 10,
     tipoMenu: "",
     producto: "",
@@ -73,21 +74,20 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
       correo,
       telefono,
       fecha,
+      hora,
       porciones,
       tipoMenu,
       producto,
       mensaje,
     } = formulario;
 
-    // ✅ Validación de mínimo 10 porciones
     if (porciones < 10) {
       alert("📌 El pedido mínimo es de 10 porciones.");
       return;
     }
 
-    // ✅ Validación de 48h de anticipación
     const hoy = new Date();
-    const fechaEvento = new Date(fecha);
+    const fechaEvento = new Date(`${fecha}T${hora}`);
     const diferenciaHoras = (fechaEvento - hoy) / (1000 * 60 * 60);
 
     if (diferenciaHoras < 48) {
@@ -95,7 +95,7 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
       return;
     }
 
-    // ✅ Mensaje a WhatsApp
+    // Construir mensaje para WhatsApp
     const texto = `
 📩 *Nueva solicitud de cotización*
 
@@ -103,13 +103,14 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
 📧 *Correo:* ${correo}
 📞 *Teléfono:* ${telefono}
 📅 *Fecha del evento:* ${fecha}
+🕒 *Hora estimada de entrega:* ${hora}
 🍽️ *Cantidad de porciones:* ${porciones}
 📋 *Tipo de menú:* ${tipoMenu}
 🍱 *Producto:* ${producto}
 📝 *Preferencias:* ${mensaje}
 
 💖 Enviado desde *Sabor a Felicidad*
-`;
+    `;
 
     const numeroWhatsApp = "573507881893";
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
@@ -130,6 +131,7 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
         <p className={styles.subtitulo}>
           Estamos listos para consentir tus sentidos
         </p>
+
         <form className={styles.formulario} onSubmit={handleSubmit}>
           <input
             type="text"
@@ -163,6 +165,13 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
             required
           />
           <input
+            type="time"
+            name="hora"
+            value={formulario.hora}
+            onChange={handleChange}
+            required
+          />
+          <input
             type="number"
             name="porciones"
             value={formulario.porciones}
@@ -176,7 +185,7 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
             name="tipoMenu"
             value={formulario.tipoMenu}
             onChange={handleChange}
-            required={!formulario.tipoMenu}
+            required
           >
             <option value="">Selecciona tipo de menú</option>
             {Object.keys(productosPorMenu).map((menu) => (
@@ -191,7 +200,7 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
               name="producto"
               value={formulario.producto}
               onChange={handleChange}
-              required={!formulario.producto}
+              required
             >
               <option value="">Selecciona un producto</option>
               {productosDisponibles.map((prod) => (
@@ -210,11 +219,14 @@ const CotizadorFlotante = ({ isOpen, onClose, categoriaPreseleccionada }) => {
             rows={4}
           ></textarea>
 
-          {/* ✅ Mensaje de requisitos */}
           <p style={{ fontSize: "0.9rem", color: "#a44", marginTop: "10px" }}>
-            🔔 <strong>Importante:</strong> <br /> Pedido mínimo 10 porciones.
-            Agenda con 48 horas de anticipación, garantizamos productos frescos
-            y alta calidad. Solo para eventos o reuniones.
+            🔔 <strong>Importante:</strong>
+            <br />
+            Pedido mínimo 10 porciones.
+            <br />
+            Agenda con 48 horas de anticipación. <br />
+            Garantizamos productos frescos y alta calidad. Solo para eventos o
+            reuniones.
           </p>
 
           <button type="submit" className={styles.botonEnviar}>

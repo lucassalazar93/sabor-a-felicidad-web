@@ -69,7 +69,8 @@ const Ofrecemos = () => {
 
   return (
     <section className={styles.ofrecemos} id="ofrecemos">
-      <h2 className={styles.title} data-aos="fade-up">
+      {/* ✅ Aquí se agrega el ID que enlaza con el botón del navbar */}
+      <h2 className={styles.title} id="categorias" data-aos="fade-up">
         Elige tu sabor favorito
       </h2>
 
