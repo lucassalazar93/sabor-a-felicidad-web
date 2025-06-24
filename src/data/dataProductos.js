@@ -7,6 +7,7 @@ import desayuno3 from "@/assets/desayunos/desayuno3.png";
 import desayuno4 from "@/assets/desayunos/desayuno4.png";
 import desayuno5 from "@/assets/desayunos/desayuno5.png";
 import desayuno6 from "@/assets/desayunos/desayuno6.png";
+import desayuno7 from "@/assets/desayunos/arepa-de-huevo.png";
 
 // ✅ Imágenes POSTRES
 import postres1 from "@/assets/postres/postres1.png";
@@ -18,10 +19,10 @@ import postres6 from "@/assets/postres/postres6.png";
 
 // ✅ Imágenes SNACKS
 import snacks1 from "@/assets/snacks/snacks1.png";
-import snacks2 from "@/assets/snacks/snacks2.png";
-import snacks3 from "@/assets/snacks/snacks3.png";
-import snacks4 from "@/assets/snacks/snacks4.png";
-import snacks5 from "@/assets/snacks/snacks5.png";
+import snacks2 from "@/assets/snacks/arepa-de-huevo.png";
+import snacks3 from "@/assets/snacks/pastel-de-pollo.png";
+import snacks4 from "@/assets/snacks/almohabanas.png";
+import snacks5 from "@/assets/snacks/empanadas-queso.png";
 import snacks6 from "@/assets/snacks/snacks6.png";
 import snacks7 from "@/assets/snacks/snacks7.png";
 import snacks8 from "@/assets/snacks/snacks8.png";
@@ -29,6 +30,7 @@ import snacks9 from "@/assets/snacks/snacks9.png";
 import snacks10 from "@/assets/snacks/snacks10.png";
 import snacks11 from "@/assets/snacks/snacks11.png";
 import snacks12 from "@/assets/snacks/snacks12.png";
+import snacks13 from "@/assets/snacks/palito-de-queso.png";
 
 // ✅ Imágenes RÁPIDAS
 import rapidas1 from "@/assets/rapidas/rapidas1.png";
@@ -75,6 +77,16 @@ export const productosData = [
     imagen: desayuno1,
     categoria: "desayunos",
     precio: 18000,
+  },
+  {
+    slug: "desayuno-arepa-de-huevo",
+    nombre: " Combo Tradición Caribeña",
+    descripcion: "Arepa de huevo crujiente + Gaseosa Colombiana 400ml.",
+    descripcion_larga:
+      "Disfruta de una arepa de huevo costeña, dorada y crocante, con su relleno jugoso y recién hecha, acompañada de una Colombiana bien fría. Ideal para compartir una pausa sabrosa o empezar el día con lo mejor del Caribe en tus manos. Incluye salsas de eleccion.",
+    imagen: desayuno7,
+    categoria: "desayunos",
+    precio: 12000,
   },
   {
     slug: "tazon-energetico",
@@ -157,26 +169,76 @@ export const productosData = [
   },
 
   // 🌮 SNACKS
-  ...[
-    snacks1,
-    snacks2,
-    snacks3,
-    snacks4,
-    snacks5,
-    snacks6,
-    snacks7,
-    snacks8,
-    snacks9,
-    snacks10,
-    snacks11,
-    snacks12,
-  ].map((img, i) => ({
-    slug: `bandeja-snack-${i + 1}`,
-    nombre: "Bandeja Mini Salados",
-    descripcion: "Variedad de bocados gourmet.",
-    imagen: img,
+
+  {
+    slug: "palito-de-queso",
+    nombre: "Palito de queso",
+    descripcion: "Crujientes por fuera, suaves por dentro..",
+    descripcion_larga:
+      "Nuestros palito de queso son una receta artesanal horneada con amor. Están hechos con masa de hojaldre delicadamente enrollada, rellenos y espolvoreados con queso costeño rallado que se funde con cada bocado. ",
+    imagen: snacks13,
     categoria: "snacks",
-  })),
+    precio: 5000,
+  },
+  {
+    slug: "buñuelos",
+    nombre: "Buñuelos",
+    descripcion: "Dorados, esponjosos y llenos de sabor.",
+    descripcion_larga:
+      "Nuestras bolitas de queso son el snack perfecto para alegrar cualquier momento. Preparadas con una mezcla especial de almidón y queso costeño, se fríen hasta alcanzar un dorado ideal y una textura crocante por fuera, suave por dentro. ",
+    imagen: snacks1,
+    categoria: "snacks",
+    precio: 1000,
+  },
+  {
+    slug: "arepa-de-huevo",
+    nombre: "Arepa de Huevo Tradicional",
+    descripcion: "Una joya de la costa que enamora desde la primera mordida.",
+    descripcion_larga:
+      "Nuestra arepa de huevo es un homenaje a la cocina costeña. Preparada con masa de maíz amarillo molido a mano, rellena con huevo fresco que se cocina suavemente en el interior, logrando una textura jugosa, dorada y crujiente a la vez. ",
+    imagen: snacks2,
+    categoria: "snacks",
+    precio: 6000,
+  },
+  {
+    slug: "pasteles-de-pollo",
+    nombre: "Pasteles de Pollo",
+    descripcion: "Rellenos de pollo jugoso y masa dorada al punto.",
+    descripcion_larga:
+      "Nuestros pasteles de pollo son una explosión de sabor tradicional. Preparados con masa de maíz crocante, rellenos de pollo desmechado sazonado con especias naturales y frito hasta alcanzar un dorado perfecto. ",
+    imagen: snacks3,
+    categoria: "snacks",
+    precio: 7000,
+  },
+  {
+    slug: "almojabanas",
+    nombre: "Almojábanas Recién Horneadas",
+    descripcion: "Horneadas con amor, suaves y doraditas.",
+    descripcion_larga:
+      "Nuestras almojábanas son suaves por dentro, ligeramente crocantes por fuera y con ese toque característico del queso costeño que las hace inolvidables.Horneadas artesanalmente en el punto justo, son ideales para acompañar tu café, chocolate caliente o simplemente disfrutar como merienda saludable y reconfortante. ",
+    imagen: snacks4,
+    categoria: "snacks",
+    precio: 4000,
+  },
+  {
+    slug: "empanadas-de-queso",
+    nombre: "Empanadas de Queso",
+    descripcion: "Delicadamente doradas y rellenas de puro amor (y queso).",
+    descripcion_larga:
+      "Nuestras empanadas de queso están hechas con masa de maíz blanco, crocante al primer bocado, y un relleno de queso mozarella cremoso que se derrite lentamente en tu boca.Son un clásico irresistible de la cocina colombiana. ",
+    imagen: snacks5,
+    categoria: "snacks",
+    precio: 4000,
+  },
+  ...[snacks6, snacks7, snacks8, snacks9, snacks10, snacks11, snacks12].map(
+    (img, i) => ({
+      slug: `bandeja-snack-${i + 1}`,
+      nombre: "Bandeja Mini Salados",
+      descripcion: "Variedad de bocados gourmet.",
+      imagen: img,
+      categoria: "snacks",
+    })
+  ),
 
   // 🍔 RÁPIDAS
   ...[

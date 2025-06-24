@@ -10,27 +10,34 @@
   align-items: center;
   z-index: 9999;
   animation: fadeIn 0.3s ease;
+  padding: 1rem;
+  overflow-y: auto;
 }
 
 .modal-content {
   background: white;
   border-radius: 24px;
-  padding: 2rem;
-  max-width: 620px;
-  width: 90%;
+  padding: 1.5rem;
+  max-width: 550px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   animation: scaleIn 0.3s ease;
   font-family: "Quicksand", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  top: 14px;
+  right: 18px;
   background: none;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   cursor: pointer;
   color: #888;
   transition: color 0.2s ease;
@@ -40,11 +47,31 @@
   color: #333;
 }
 
-.imagen-container img {
+.imagen-container {
   width: 100%;
-  border-radius: 16px;
+  max-height: 320px;
   margin-bottom: 1rem;
-  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff3f8;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.imagen-container img {
+  max-width: 100%;
+  max-height: 320px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 16px;
+}
+
+.contenido {
+  width: 100%;
+  text-align: center;
 }
 
 .contenido h2 {
@@ -82,12 +109,22 @@
   padding-left: 0;
   list-style: none;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .incluye li {
   font-size: 1rem;
   color: #444;
   margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.incluye li::before {
+  content: "🍽️";
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .btn-container {
@@ -111,7 +148,9 @@
   background-color: #d95d8b;
 }
 
-/* Animaciones */
+/* ============================
+   Animaciones
+============================ */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -129,5 +168,32 @@
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* ============================
+   Responsive: Tablet y Móvil
+============================ */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1rem;
+    max-width: 95%;
+    max-height: 85vh;
+  }
+
+  .contenido h2 {
+    font-size: 1.5rem;
+  }
+
+  .descripcion {
+    font-size: 0.95rem;
+  }
+
+  .imagen-container {
+    max-height: 220px;
+  }
+
+  .imagen-container img {
+    max-height: 220px;
   }
 }
