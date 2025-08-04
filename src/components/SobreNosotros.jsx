@@ -40,7 +40,7 @@ const SobreNosotros = () => {
           data-aos="fade-left"
           data-aos-delay="400"
         >
-          <h2>Una historia que se cocina con amor 🍓</h2>
+          <h2>Una historia que se cocina con amor </h2>
 
           <p>
             Sabor a Felicidad nació desde mi corazón. No como un negocio, sino
@@ -113,7 +113,7 @@ const SobreNosotros = () => {
             data-aos-delay="400"
           >
             <a href="#categorias" className="btn-secundario">
-              Descubre nuestras recetas 🍓
+              Descubre nuestras recetas
             </a>
           </div>
         </div>

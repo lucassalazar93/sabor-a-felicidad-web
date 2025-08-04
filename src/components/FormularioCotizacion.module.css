@@ -1,5 +1,5 @@
 .formWrapper {
-  background: rgba(255, 255, 255, 0.7);
+  background: #fff4e5;
   backdrop-filter: blur(10px);
   padding: 3rem 2rem;
   border-radius: 1.5rem;
@@ -13,14 +13,14 @@
 .titulo {
   font-family: var(--font-title);
   font-size: 2.3rem;
-  color: var(--color-primary);
+  color: #590219;
   margin-bottom: 0.5rem;
 }
 
 .subtitulo {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  color: var(--color-text-main);
+  color: black;
   font-family: var(--font-body);
 }
 
@@ -28,6 +28,24 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  color: #363535;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg fill='%23590219' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  cursor: pointer;
 }
 
 .form input,
@@ -45,13 +63,13 @@
 .form input:focus,
 .form select:focus,
 .form textarea:focus {
-  border-color: var(--color-primary);
+  border-color: #590219;
   outline: none;
 }
 
 .botonEnviar {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: #590219;
+  color: #fff4e5;
   padding: 1rem;
   border: none;
   border-radius: 12px;
@@ -63,14 +81,15 @@
 }
 
 .botonEnviar:hover {
-  background-color: var(--color-secondary);
+  background-color: #ffa200;
+  color: #590219;
 }
 
 .alerta {
   font-size: 0.95rem;
   margin-top: 1rem;
-  color: #8a4a5f;
-  background-color: #fff0f4;
+  color: #590219;
+  background-color: #59021933;
   padding: 0.8rem 1rem;
   border-radius: 8px;
   font-family: var(--font-body);

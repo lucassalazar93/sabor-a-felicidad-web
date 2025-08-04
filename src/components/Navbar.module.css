@@ -15,7 +15,7 @@
 }
 
 .scrolled {
-  background-color: rgba(255, 245, 248, 0.95);
+  background-color: #ffe9ce;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(8px);
 }
@@ -37,6 +37,7 @@
   opacity: 0;
   transform: translateY(20px);
   animation: brandingFadeIn 0.8s ease-out forwards;
+  margin-top: 3rem;
 }
 
 @keyframes brandingFadeIn {
@@ -47,8 +48,8 @@
 }
 
 .logo {
-  width: 100px;
-  height: 100px;
+  width: 215px;
+  height: 215px;
   border-radius: 50%;
   object-fit: contain;
   image-rendering: auto;
@@ -63,7 +64,7 @@
   font-family: var(--font-title, "Playfair Display", serif);
   font-size: 1.4rem;
   font-weight: 700;
-  color: #d86e93;
+  color: #590219;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -85,7 +86,7 @@
 
 .navLinks a {
   text-decoration: none;
-  color: #a63f61;
+  color: #590219;
   font-weight: 500;
   font-size: 1.1rem;
   position: relative;
@@ -97,7 +98,7 @@
   content: "";
   width: 0%;
   height: 2px;
-  background-color: #ff88a7;
+  background-color: #590219;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -106,7 +107,7 @@
 }
 
 .navLinks a:hover {
-  color: #ff5d85;
+  color: #ffa200;
 }
 
 .navLinks a:hover::after {
@@ -116,7 +117,7 @@
 /* ================= CONTACTO ================= */
 .contacto {
   font-weight: bold;
-  color: #b54892;
+  color: #590219;
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -135,7 +136,7 @@
 .bar {
   width: 25px;
   height: 3px;
-  background-color: #a63f61;
+  background-color: #590219;
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -169,7 +170,7 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: #fff5f8;
+    background-color: #ffe9ce;
     padding: 2rem;
     display: none;
     gap: 1.5rem;
@@ -190,7 +191,7 @@
   .contactoMobile {
     display: block;
     font-weight: bold;
-    color: #ff5d85;
+    color: #590219;
     font-size: 1rem;
     margin-top: 1rem;
   }
@@ -207,4 +208,26 @@
   .brandText {
     font-size: 1.2rem;
   }
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.4s ease;
+  background-color: #fff4e5; /* o el color que ya tienes */
+}
+
+/* Mostrar navbar */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Ocultar navbar */
+.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
 }

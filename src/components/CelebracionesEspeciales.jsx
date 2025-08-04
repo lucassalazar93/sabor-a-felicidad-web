@@ -87,7 +87,7 @@ const CelebracionesEspeciales = () => {
 
   return (
     <section className={styles.celebraciones} id="celebraciones">
-      <h2 className={styles.titulo}>🎉 Celebraciones Especiales</h2>
+      <h2 className={styles.titulo}>Celebraciones Especiales</h2>
       <p className={styles.subtitulo}>
         Haz cada fecha inolvidable con nuestros sabores únicos.
       </p>

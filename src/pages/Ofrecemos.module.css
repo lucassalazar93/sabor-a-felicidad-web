@@ -1,6 +1,6 @@
 .ofrecemos {
   padding: 5rem 2rem;
-  background-color: #ffffff;
+  background-color: #401216;
   text-align: center;
   position: relative;
 }
@@ -8,7 +8,7 @@
 .title {
   font-size: 2.4rem;
   font-family: var(--font-title);
-  color: var(--color-primary);
+  color: #fff4e5;
   margin-bottom: 3rem;
 }
 
@@ -72,7 +72,7 @@
 
 /* Tarjeta */
 .card {
-  background-color: #fff5f8;
+  background-color: #fff4e5;
   border-radius: 20px;
   padding: 2rem;
   max-width: 260px;
@@ -98,21 +98,21 @@
 .card h3 {
   font-family: var(--font-title);
   font-size: 1.3rem;
-  color: var(--color-primary);
+  color: #590219;
   margin-bottom: 0.5rem;
 }
 
 .card p {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--color-text-main);
+  color: black;
   margin-bottom: 1.2rem;
 }
 
 .btn {
   font-family: var(--font-ui);
-  background-color: var(--color-primary);
-  color: white;
+  background-color: #590219;
+  color: #fff4e5;
   padding: 0.6rem 1.4rem;
   border-radius: 30px;
   text-decoration: none;
@@ -122,7 +122,8 @@
 }
 
 .btn:hover {
-  background-color: var(--color-secondary);
+  background-color: #590219;
+  color: #ffa200;
   transform: scale(1.05);
 }
 

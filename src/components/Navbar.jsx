@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import logo from "@/assets/logo.svg";
@@ -7,20 +6,40 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false); // 👈 nuevo estado
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    setTimeout(() => setLoaded(true), 100);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowNavbar(!entry.isIntersecting); // 👈 ocultar si el #inicio está visible
+      },
+      {
+        threshold: 0.5, // visible al menos 50%
+      }
+    );
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    const hero = document.getElementById("inicio");
+    if (hero) observer.observe(hero);
+
+    setTimeout(() => setLoaded(true), 100);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (hero) observer.unobserve(hero);
+    };
   }, []);
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+    <nav
+      className={`${styles.navbar} 
+        ${scrolled ? styles.scrolled : ""} 
+        ${showNavbar ? styles.visible : styles.hidden}`}
+    >
       <div className={styles.container}>
         {/* Logo */}
         <a href="/#inicio" onClick={() => setMenuOpen(false)}>
@@ -31,7 +50,7 @@ const Navbar = () => {
               className={styles.logo}
             />
             {!scrolled && (
-              <span className={styles.brandText}>SABOR A FELICIDAD</span>
+              <span className={styles.brandText}>Nore Quintero</span>
             )}
           </div>
         </a>

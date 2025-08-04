@@ -1,16 +1,16 @@
 /* ================================
    CONTENEDOR GENERAL
-================================= */
+================================ */
 .categoriasWrapper {
   width: 100%;
-  background-color: var(--color-bg-light);
+  background-color: #fff4e5;
   padding: 4rem 2rem;
   box-sizing: border-box;
 }
 
 /* ================================
-   SECCIÓN INDIVIDUAL
-================================= */
+   SECCIÓN INDIVIDUAL (base)
+================================ */
 .categoria {
   padding: 4rem 1rem;
   scroll-margin-top: 120px;
@@ -20,76 +20,95 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  border-radius: 24px;
+  overflow: hidden; /* Asegura que no se desborden hijos */
+}
+
+/* ================================
+   COLORES PERSONALIZADOS POR CATEGORÍA
+================================ */
+.categoriaDesayunos {
+  background-color: #6f131be4;
+}
+
+.categoriaPostres {
+  background-color: #ffdddde6;
+}
+
+.categoriaSnacks {
+  background-color: #f2b749df;
+}
+
+.categoriaRapidas {
+  background-color: #ac390cdb;
+}
+
+.categoriaTipica {
+  background-color: #ebb250e6;
+}
+
+.categoriaGourmet {
+  background-color: #070707;
 }
 
 /* ================================
    TÍTULO Y DESCRIPCIÓN
-================================= */
+================================ */
 .titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   font-size: 2.8rem;
   font-family: var(--font-title);
-  color: var(--color-primary);
+  color: #590219;
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-align: center;
+}
+
+.categoriaGourmet .titulo {
+  color: #e0c26d;
+}
+
+.categoriaGourmet .descripcion {
+  color: #e0c26d;
+  max-width: 600px;
+}
+
+.categoriaDesayunos .titulo {
+  color: #e0c26d;
+}
+
+.categoriaDesayunos .descripcion {
+  color: #e0c26d;
+  max-width: 600px;
+}
+
+.icono {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
 }
 
 .descripcion {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: var(--color-text-main);
+  color: #590219;
   max-width: 600px;
   margin-bottom: 2.5rem;
   line-height: 1.6;
 }
 
 /* ================================
-   INDICADOR DE DESLIZAMIENTO
-================================= */
-.indicadorDeslizamiento {
-  display: none;
-  font-size: 1rem;
-  font-family: var(--font-ui);
-  font-weight: 500;
-  color: var(--color-secondary);
-  text-align: center;
-  margin-bottom: 1.6rem;
-  animation: parpadeo 2s infinite ease-in-out;
-  position: relative;
-}
-
-.indicadorDeslizamiento::after {
-  content: "➡️";
-  display: inline-block;
-  margin-left: 0.5rem;
-  animation: rebote 1.4s infinite ease-in-out;
-}
-
-/* ================================
-   ANIMACIONES
-================================= */
-@keyframes parpadeo {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-@keyframes rebote {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-6px);
-  }
-}
-
-/* ================================
-   GRID DE TARJETAS - ESCRITORIO
-================================= */
+   GRID DE TARJETAS
+================================ */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -99,13 +118,11 @@
 }
 
 /* ================================
-   TARJETAS
-================================= */
+   TARJETA BASE
+================================ */
 .card {
-  background-color: #fff5f8;
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 8px 24px rgba(248, 125, 169, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   min-width: 260px;
@@ -113,11 +130,37 @@
   flex-direction: column;
   justify-content: space-between;
   height: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* COLORES DE TARJETAS POR CATEGORÍA */
+.categoriaDesayunos .card {
+  background-color: #fff4e5;
+}
+
+.categoriaPostres .card {
+  background-color: #ffebef;
+}
+
+.categoriaSnacks .card {
+  background-color: #d98f07;
+}
+
+.categoriaRapidas .card {
+  background-color: #ebb425;
+}
+
+.categoriaGourmet .card {
+  background-color: #d09e3f;
+}
+
+.categoriaTipica .card {
+  background-color: #af4a10;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(248, 125, 169, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .card img {
@@ -132,14 +175,14 @@
 
 .card h3 {
   font-size: 1.3rem;
-  color: var(--color-primary);
+  color: #590219;
   font-family: var(--font-title);
   margin-bottom: 0.4rem;
 }
 
 .card p {
   font-size: 1rem;
-  color: var(--color-text-main);
+  color: #590219;
   font-family: var(--font-body);
   margin-bottom: 1.4rem;
   line-height: 1.5;
@@ -148,49 +191,36 @@
 /* BOTÓN */
 .card button,
 .boton {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: #590219;
+  color: #ffffff;
   padding: 0.6rem 1.4rem;
   border: none;
   border-radius: 30px;
   font-size: 0.95rem;
   font-family: var(--font-ui);
   font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
   cursor: pointer;
   align-self: center;
-  box-shadow: 0 4px 10px rgba(248, 125, 169, 0.2);
+  box-shadow: 0 4px 10px rgb(56, 56, 56);
 }
 
 .card button:hover,
 .boton:hover {
-  background-color: var(--color-secondary);
+  background-color: #ffa200;
+  color: #590219;
   transform: scale(1.05);
 }
 
 /* ================================
-   MENSAJE SI NO HAY DATOS
-================================= */
-.noData {
-  padding: 3rem;
-  font-size: 1.2rem;
-  color: #888;
-  text-align: center;
-  font-style: italic;
-}
-
-/* ================================
-   RESPONSIVE: TABLET
-================================= */
+   RESPONSIVE
+================================ */
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ================================
-   RESPONSIVE: MÓVIL
-================================= */
 @media (max-width: 768px) {
   .grid {
     display: flex;
@@ -215,10 +245,6 @@
     padding: 2rem 1.6rem;
   }
 
-  .card img {
-    max-height: 200px;
-  }
-
   .titulo {
     font-size: 2.2rem;
   }
@@ -226,25 +252,39 @@
   .descripcion {
     font-size: 1rem;
   }
-
-  .indicadorDeslizamiento {
-    display: block;
-  }
 }
+
+/* ================================
+   OTROS
+================================ */
+.indicadorDeslizamiento {
+  display: none;
+}
+
+.noData {
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #888;
+  text-align: center;
+  font-style: italic;
+}
+
 .botonExplorar {
   display: inline-block;
   margin: 2rem auto 0;
   padding: 1rem 2rem;
-  background-color: var(--color-primary);
+  background-color: #590219;
   color: white;
   border-radius: 40px;
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(248, 125, 169, 0.3);
-  transition: background 0.3s ease;
+  box-shadow: 0 4px 15px rgba(104, 104, 104, 0.714);
+  transition: background 0.3s ease, color 0.2s ease;
   text-align: center;
 }
+
 .botonExplorar:hover {
-  background-color: #c2185b;
+  background-color: #ffa200;
+  color: #590219;
 }

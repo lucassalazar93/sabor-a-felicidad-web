@@ -1,10 +1,10 @@
 /* ================= FOOTER ================= */
 .footer {
-  background-color: #ffeef4;
+  background-color: #fff4e5;
   padding: 3rem 2rem 2rem;
   font-family: var(--font-ui);
-  color: var(--color-text-main);
-  box-shadow: 0 -5px 20px rgba(248, 125, 169, 0.1);
+  color: #401216;
+  box-shadow: 0 -5px 20px rgba(35, 2, 13, 0.207);
 }
 
 /* === CONTENEDOR === */
@@ -26,18 +26,16 @@
 }
 
 .footer-brand img {
-  width: 150px; /* ✅ más grande */
+  width: 150px;
   margin-bottom: 0.8rem;
   transition: transform 0.3s ease;
 }
-
 .footer-brand img:hover {
   transform: scale(1.05);
 }
-
 .footer-brand p {
   font-size: 0.95rem;
-  color: #333;
+  color: #590219;
   max-width: 220px;
   margin: 0;
   line-height: 1.4;
@@ -46,33 +44,69 @@
 
 /* === CONTACTO === */
 .footer-contact h4,
-.footer-social h4 {
-  color: var(--color-primary);
+.footer-social h4,
+.footer-links-column h4 {
+  color: #590219;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
+/* === CONTACTO Y ENLACES */
 .footer-contact p,
 .footer-contact a {
   font-size: 0.9rem;
   margin: 0.3rem 0;
-  color: #555;
+  color: #401216;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+.footer-contact a:hover {
+  color: #c94f7c;
 }
 
 /* === REDES SOCIALES === */
 .footer-social a {
   margin-right: 1rem;
   font-size: 1.5rem;
-  color: var(--color-primary);
+  color: #590219;
+  transition: color 0.3s ease;
+}
+.footer-social a:hover {
+  color: #ffa200;
+}
+
+/* === ENLACES CORREGIDOS === */
+.footer-links-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-links-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-column ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links-column ul li a {
+  font-size: 0.9rem;
+  color: #401216;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer-social a:hover {
-  color: #c2185b;
+.footer-links-column ul li a:hover {
+  color: #c94f7c;
+}
+
+.footer-links-column ul li a:visited {
+  color: #401216; /* ✅ Corrige el morado por defecto */
 }
 
 /* === COPYRIGHT === */
@@ -80,7 +114,7 @@
   text-align: center;
   margin-top: 2rem;
   font-size: 0.85rem;
-  color: #999;
+  color: #401216;
 }
 
 /* === MAPA === */
@@ -93,7 +127,7 @@
 .footer-map iframe {
   width: 100%;
   max-width: 1100px;
-  height: 250px;
+  height: 280px;
   border: none;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -118,31 +152,6 @@
   }
 
   .footer-brand img {
-    width: 130px; /* ✅ tamaño especial en móvil */
+    width: 130px;
   }
-}
-
-.footer-links-column {
-  flex: 1;
-  min-width: 150px;
-}
-
-.footer-links-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links-column ul li {
-  margin-bottom: 0.6rem;
-}
-
-.footer-links-column ul li a {
-  text-decoration: none;
-  color: var(--color-text-main);
-  transition: color 0.3s ease;
-}
-
-.footer-links-column ul li a:hover {
-  color: var(--color-primary);
 }

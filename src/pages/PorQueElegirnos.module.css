@@ -1,5 +1,5 @@
 .eligirnos {
-  background-color: #ffffff;
+  background-color: #401216;
   padding: 6rem 2rem;
   text-align: center;
   overflow-x: hidden;
@@ -9,7 +9,7 @@
 .titulo {
   font-family: var(--font-title);
   font-size: 2.6rem;
-  color: var(--color-primary);
+  color: #fff4e5;
   margin-bottom: 3rem;
   position: relative;
 }
@@ -19,7 +19,7 @@
   display: block;
   width: 80px;
   height: 4px;
-  background: var(--color-primary);
+  background: #ffa200;
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -43,7 +43,7 @@
 
 /* Tarjetas */
 .card {
-  background: #fff5f8;
+  background: #fff4e5;
   border-radius: 16px;
   padding: 2.2rem 1.8rem;
   box-shadow: 0 6px 16px rgba(248, 125, 169, 0.08);
@@ -65,7 +65,7 @@
 /* Ícono */
 .icono {
   font-size: 2.6rem;
-  color: var(--color-primary);
+  color: #ffa200;
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
 }
@@ -79,14 +79,14 @@
   font-size: 1.3rem;
   font-family: var(--font-body);
   font-weight: 600;
-  color: var(--color-text-main);
+  color: #590219;
   margin-bottom: 0.6rem;
   line-height: 1.4;
 }
 
 .card p {
   font-size: 1rem;
-  color: #4a3c3c;
+  color: #020202;
   font-family: var(--font-body);
   line-height: 1.6;
   margin: 0;

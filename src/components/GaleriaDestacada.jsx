@@ -26,44 +26,44 @@ const imagenes = [
   {
     src: imagen1,
     alt: "Desayuno entregado con amor",
-    etiqueta: "💖 Entregado con amor",
+    etiqueta: " Entregado con amor",
   },
-  { src: imagen2, alt: "Pedido Día de la Madre", etiqueta: "🥛 Desayuno" },
+  { src: imagen2, alt: "Pedido Día de la Madre", etiqueta: " Desayuno" },
   {
     src: imagen3,
     alt: "Detalle para aniversario",
-    etiqueta: "👩🏻‍🥶 Día De La Madre",
+    etiqueta: "Día De La Madre",
   },
   {
     src: imagen4,
     alt: "Sorpresa corporativa",
-    etiqueta: "👨🏻‍👧🏻‍👧🏻 Día Del Padre",
+    etiqueta: "Día Del Padre",
   },
   {
     src: imagen5,
     alt: "Pedido con mensaje especial",
-    etiqueta: "💖 Día De La Mujer",
+    etiqueta: " Día De La Mujer",
   },
-  { src: imagen6, alt: "Caja romántica", etiqueta: "🍔 Almuerzo Corporativo" },
+  { src: imagen6, alt: "Caja romántica", etiqueta: " Almuerzo Corporativo" },
   {
     src: imagen7,
     alt: "Postres",
-    etiqueta: "🍮 Delicias que acarician el alma",
+    etiqueta: " Delicias que acarician el alma",
   },
   {
     src: imagen8,
     alt: "Amigos",
-    etiqueta: "🫶🏼 Donde nacen los momentos inolvidables",
+    etiqueta: " Donde nacen los momentos inolvidables",
   },
   {
     src: imagen9,
     alt: "Momentos",
-    etiqueta: "😍 Sabor que se comparte con alegría",
+    etiqueta: "Sabor que se comparte con alegría",
   },
   {
     src: imagen10,
     alt: "Navidad",
-    etiqueta: "💕 Regalos con alma y propósito",
+    etiqueta: " Regalos con alma y propósito",
   },
   { src: imagen11, alt: "Torta", etiqueta: "🎂 Sabores Que Abrazan" },
   { src: imagen12, alt: "Arepas", etiqueta: "🫓 ¡Ñam Arepa!" },
@@ -109,7 +109,7 @@ const GaleriaDestacada = () => {
   return (
     <section className={styles.galeriaSection}>
       <div className={styles.textoIntro}>
-        <h2>💞 Entregas que abrazan el corazón</h2>
+        <h2> Entregas que abrazan el corazón</h2>
         <p>
           Cada entrega es una historia real. Mira cómo hemos hecho que muchas
           personas se sientan amadas, celebradas y recordadas.
@@ -144,7 +144,7 @@ const GaleriaDestacada = () => {
           ¿Y si el próximo momento inolvidable fuera para ti o alguien especial?
         </p>
         <a href="#cotizar" className={styles.boton}>
-          📲 Cotiza Con Nosotros
+          Cotiza Con Nosotros
         </a>
       </div>
     </section>

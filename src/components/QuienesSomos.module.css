@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 5rem 2rem 3rem;
-  background-color: #fff5f8;
+  background-color: #fff4e5;
   text-align: center;
   gap: 2.5rem;
   position: relative;
@@ -14,7 +14,7 @@
 .title {
   font-family: var(--font-title);
   font-size: 2.6rem;
-  color: var(--color-primary);
+  color: #590219;
   margin-bottom: 1.2rem;
   line-height: 1.3;
   text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6),
@@ -24,7 +24,7 @@
 .text {
   font-family: var(--font-body);
   font-size: 1.2rem;
-  color: var(--color-text-main);
+  color: #000000;
   max-width: 600px;
   line-height: 1.6;
   margin: 0 auto;

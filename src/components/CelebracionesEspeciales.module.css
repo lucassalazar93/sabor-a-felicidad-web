@@ -1,6 +1,6 @@
 .celebraciones {
   padding: 5rem 2rem;
-  background-color: #fff8fb;
+  background-color: #fff4e5;
   text-align: center;
   position: relative;
 }
@@ -8,13 +8,13 @@
 .titulo {
   font-size: 2.4rem;
   font-family: var(--font-title);
-  color: var(--color-primary);
+  color: #590219;
   margin-bottom: 0.5rem;
 }
 
 .subtitulo {
   font-size: 1rem;
-  color: #666;
+  color: #000000;
   font-family: var(--font-body);
   margin-bottom: 2.5rem;
 }
@@ -48,7 +48,7 @@
 
 /* Tarjeta general */
 .card {
-  background-color: #fff5f8;
+  background-color: #401216;
   border-radius: 20px;
   padding: 2rem;
   max-width: 100%;
@@ -77,21 +77,21 @@
 .card h3 {
   font-family: var(--font-title);
   font-size: 1.3rem;
-  color: var(--color-primary);
+  color: #fff4e5;
   margin-bottom: 0.5rem;
 }
 
 .card p {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--color-text-main);
+  color: #fff4e5;
   margin-bottom: 1.2rem;
 }
 
 /* Botón activo */
 .boton {
   font-family: var(--font-ui);
-  background-color: var(--color-primary);
+  background-color: #401216;
   color: white;
   padding: 0.6rem 1.4rem;
   border-radius: 30px;
@@ -104,7 +104,7 @@
 }
 
 .boton:hover {
-  background-color: var(--color-secondary);
+  background-color: #fff4e5;
   transform: scale(1.05);
 }
 
@@ -112,6 +112,7 @@
 .card.desactivada {
   opacity: 0.5;
   pointer-events: none;
+  color: #ffa200;
 }
 
 .card.desactivada::after {
@@ -124,7 +125,7 @@
   padding: 0.6rem 1.2rem;
   border-radius: 12px;
   font-size: 0.85rem;
-  color: #c2185b;
+  color: #590219;
   font-weight: bold;
   z-index: 1;
 }

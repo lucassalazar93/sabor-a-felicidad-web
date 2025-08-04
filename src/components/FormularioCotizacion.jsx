@@ -96,7 +96,7 @@ const FormularioCotizacion = () => {
 
   return (
     <section className={styles.formWrapper} id="cotizar">
-      <h2 className={styles.titulo}>💌 Cotiza tu experiencia</h2>
+      <h2 className={styles.titulo}> Cotiza tu experiencia</h2>
       <p className={styles.subtitulo}>
         Estamos listos para consentir tus sentidos
       </p>
@@ -190,7 +190,7 @@ const FormularioCotizacion = () => {
           />
 
           <button type="submit" className={styles.botonEnviar}>
-            Enviar cotización ✨
+            Enviar cotización
           </button>
 
           <div className={styles.alerta}>

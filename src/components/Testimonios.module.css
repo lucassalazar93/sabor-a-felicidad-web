@@ -1,5 +1,5 @@
 .testimonios {
-  background-color: var(--color-bg-light);
+  background-color: #fff4e5;
   padding: 5rem 2rem;
   text-align: center;
   overflow: hidden;
@@ -8,7 +8,7 @@
 .titulo {
   font-family: var(--font-title);
   font-size: 2.4rem;
-  color: var(--color-primary);
+  color: #590219;
   margin-bottom: 3rem;
 }
 
@@ -39,7 +39,7 @@
   width: 33.33%;
   max-width: 400px;
   margin: 0 1rem;
-  background-color: #fff0f5;
+  background-color: #401216;
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(248, 125, 169, 0.08);
@@ -61,14 +61,14 @@
   object-fit: contain;
   border-radius: 12px;
   margin-bottom: 1rem;
-  border: 2px solid var(--color-primary);
+  border: 2px solid #ffa200;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Texto */
 .mensaje {
   font-style: italic;
-  color: var(--color-text-main);
+  color: #fff4e5;
   margin-bottom: 0.5rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -78,7 +78,7 @@
 
 .nombre {
   font-weight: bold;
-  color: var(--color-primary);
+  color: #ffa200;
   font-family: var(--font-ui);
   font-size: 1rem;
   margin-top: 0.5rem;
