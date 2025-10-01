@@ -1,0 +1,144 @@
+/* ================================
+   OFRECEMOS - SECCIÓN
+================================ */
+.ofrecemos {
+  padding: 5rem 1rem; /* 👈 menos padding lateral */
+  background-color: #401216;
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-family: var(--font-title);
+  color: #fff4e5;
+  margin-bottom: 3rem;
+}
+
+/* ===== Desktop: grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0; /* 👈 quitamos padding extra */
+  }
+}
+
+/* ===== 📱 Móvil ===== */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 0.6rem; /* 👈 menos espacio entre tarjetas */
+    padding: 0; /* 👈 sin padding lateral */
+  }
+
+  .card {
+    width: 100%;
+    max-width: none; /* 👈 se expande mejor */
+    padding: 0.6rem;
+    border-radius: 12px;
+  }
+
+  .img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.4rem;
+    max-height: 110px;
+  }
+
+  .card h3 {
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+    line-height: 1.2;
+  }
+
+  .card p {
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .btn {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 14px;
+  }
+}
+
+/* ================================
+   TARJETA (Desktop / Tablet base)
+================================ */
+.card {
+  background-color: #fff4e5;
+  border-radius: 20px;
+  padding: 1.2rem;
+  max-width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(248, 125, 169, 0.1);
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(248, 125, 169, 0.2);
+}
+
+.img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: #590219;
+  margin-bottom: 0.3rem;
+}
+
+.card p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: black;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.btn {
+  font-family: var(--font-ui);
+  background-color: #590219;
+  color: #fff4e5;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #590219;
+  color: #ffa200;
+  transform: scale(1.05);
+}

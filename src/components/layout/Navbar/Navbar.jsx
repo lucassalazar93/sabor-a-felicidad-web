@@ -85,13 +85,13 @@ const Navbar = () => {
             </a>
           </li>
           <li className={styles.contactoMobile}>
-            <a href="tel:+573507881893">📞 350 788 18 93</a>
+            <a href="tel:+573507881893">📲 350 788 18 93</a>
           </li>
         </ul>
 
         {/* Teléfono escritorio */}
         <div className={styles.contacto}>
-          <a href="tel:+573507881893">📞 350 788 18 93</a>
+          <a href="tel:+573507881893">📲 350 788 18 93</a>
         </div>
 
         {/* Menú hamburguesa */}

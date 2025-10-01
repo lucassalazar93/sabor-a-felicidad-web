@@ -1,23 +1,19 @@
 // src/components/LandingPage/LandingPage.jsx
-import Navbar from "../Navbar";
-import HeroSection from "../../pages/HeroSection";
-import QuienesSomos from "../QuienesSomos";
-import Ofrecemos from "../../pages/Ofrecemos";
-import PorQueElegirnos from "../../pages/PorQueElegirnos";
-import Testimonios from "../Testimonios";
-import CelebracionesEspeciales from "../CelebracionesEspeciales"; // ✅ NUEVA SECCIÓN
-import SobreNosotros from "@/components/SobreNosotros";
-import GaleriaDestacada from "@/components/GaleriaDestacada";
+import HeroSection from "../../pages/Hero/HeroSection";
+import Ofrecemos from "../../pages/Ofrecemos/Ofrecemos";
+import PorQueElegirnos from "../../pages/PorQueElegirnos/PorQueElegirnos";
+import Testimonios from "../../sections/Testimonios/Testimonios";
+import CelebracionesEspeciales from "../../sections/Celebraciones/CelebracionesEspeciales";
+import SobreNosotros from "../../sections/SobreNosotros/SobreNosotros";
+import GaleriaDestacada from "../../sections/GaleriaDestacada/GaleriaDestacada";
 
-import WhatsappAvatar from "../WhatsappAvatar";
-import FormularioCotizacion from "@/components/FormularioCotizacion";
+import WhatsappAvatar from "../ui/WhatsappButton/WhatsappAvatar";
+import FormularioCotizacion from "../formularios/FormularioCotizacion";
 
 const LandingPage = () => {
   return (
     <>
-      <Navbar />
       <HeroSection />
-      <QuienesSomos />
       <GaleriaDestacada />
       <SobreNosotros />
       <Ofrecemos />

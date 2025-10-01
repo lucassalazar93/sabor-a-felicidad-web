@@ -1,5 +1,5 @@
 import React from "react";
-import "./TerminosCondiciones.css";
+import "../TerminosCondiciones/TerminosCondiciones.css";
 
 const PoliticaPrivacidad = () => {
   return (

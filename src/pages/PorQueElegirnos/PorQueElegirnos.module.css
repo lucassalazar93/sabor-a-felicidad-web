@@ -1,0 +1,165 @@
+/* ================================
+   POR QUÉ ELEGIRNOS - SECCIÓN
+================================ */
+.eligirnos {
+  background-color: #401216;
+  padding: 6rem 2rem;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.titulo {
+  font-family: var(--font-title);
+  font-size: 2.6rem;
+  color: #fff4e5;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.titulo::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #ffa200;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* Wrapper */
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Desktop: grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  justify-items: center;
+  transition: all 0.3s ease;
+}
+
+/* ===== Tarjetas ===== */
+.card {
+  background: #fff4e5;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 6px 16px rgba(248, 125, 169, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  cursor: pointer;
+}
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.card:hover,
+.card:active {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 16px 30px rgba(248, 125, 169, 0.15);
+}
+
+/* Ícono */
+.icono {
+  font-size: 2.4rem;
+  color: #ffa200;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .icono,
+.card:active .icono {
+  transform: scale(1.15);
+}
+
+/* Título y texto */
+.card h3 {
+  font-size: 1.2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: #590219;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #020202;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== Flechas eliminadas ===== */
+.arrowLeft,
+.arrowRight {
+  display: none;
+}
+
+/* ===== Estilo especial para móviles ===== */
+@media (max-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 👈 2 columnas tipo Didi */
+    gap: 0.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .card {
+    flex: none;
+    max-width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Efecto al tocar */
+  .card:active {
+    transform: scale(1.05);
+    box-shadow: 0 10px 22px rgba(248, 125, 169, 0.2);
+  }
+
+  .icono {
+    font-size: 2rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .card p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+}
+
+/* ===== Pantallas muy pequeñas ===== */
+@media screen and (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 👌 se mantiene compacto */
+    gap: 0.6rem;
+  }
+
+  .card {
+    padding: 0.8rem;
+  }
+
+  .card h3 {
+    font-size: 0.9rem;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+}

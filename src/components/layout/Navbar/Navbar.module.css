@@ -125,6 +125,10 @@
   white-space: nowrap;
 }
 
+.contacto a {
+  color: #590219 !important;
+}
+
 /* ================= BURGER ================= */
 .burger {
   display: none;

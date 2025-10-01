@@ -1,3 +1,4 @@
+// src/components/formularios/FormularioCotizacion.jsx
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./FormularioCotizacion.module.css";
@@ -41,6 +42,7 @@ const FormularioCotizacion = () => {
   const [fechaMinima, setFechaMinima] = useState("");
   const [enviado, setEnviado] = useState(false);
 
+  // Calcular fecha mínima = hoy + 2 días
   useEffect(() => {
     const hoy = new Date();
     hoy.setDate(hoy.getDate() + 2);
@@ -55,11 +57,9 @@ const FormularioCotizacion = () => {
       [name]: value,
     }));
 
+    // Si cambia la categoría, actualizamos las opciones de menú
     if (name === "tipo") {
-      const capitalizado =
-        categoriasDisponibles[value.charAt(0).toUpperCase() + value.slice(1)] ||
-        [];
-      setOpcionesMenu(capitalizado);
+      setOpcionesMenu(categoriasDisponibles[value] || []);
       setFormData((prev) => ({ ...prev, opcionMenu: "" }));
     }
   };

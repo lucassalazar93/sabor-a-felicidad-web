@@ -1,11 +1,11 @@
 /* ================================
-   GALERÍA DESTACADA RESPONSIVE
+   GALERÍA DESTACADA
 ================================ */
 
 .galeriaSection {
   padding: 4rem 1.5rem;
   background-color: #401216;
-  overflow: hidden;
+  overflow: hidden; /* ✅ oculta scrollbar */
 }
 
 /* Texto introductorio */
@@ -13,23 +13,29 @@
   text-align: center;
   margin-bottom: 2rem;
 }
+
 .textoIntro h2 {
   font-size: 2rem;
   font-family: var(--font-title);
   color: #fff4e5;
+  margin-bottom: 0.8rem;
 }
+
 .textoIntro p {
   font-size: 1.1rem;
   color: #fff4e5;
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
-/* Contenedor general del slider */
+/* Contenedor del slider */
 .sliderContainer {
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden; /* ✅ no muestra barra scroll */
   position: relative;
   padding-bottom: 1rem;
+  cursor: grab;
+  user-select: none; /* ✅ evita selecciones accidentales */
 }
 
 /* Cinta horizontal */
@@ -38,15 +44,17 @@
   gap: 1.5rem;
   width: max-content;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 /* Tarjeta */
 .card {
   flex: 0 0 auto;
-  width: 260px;
+  width: 280px; /* ✅ mismo ancho en TODAS las pantallas */
   border-radius: 1.2rem;
   overflow: hidden;
   position: relative;
+  background: #fff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -70,13 +78,14 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #ce870db4;
+  background-color: rgba(206, 135, 13, 0.7);
   color: #fff4e5;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.5rem 1rem;
   border-top-right-radius: 1rem;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.803);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px); /* ✨ efecto glass suave */
 }
 
 /* CTA final */
@@ -84,11 +93,14 @@
   text-align: center;
   margin-top: 2rem;
 }
+
 .cta p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
   color: #fff4e5;
+  line-height: 1.4;
 }
+
 .boton {
   background-color: #ce870de6;
   color: #fff4e5;
@@ -96,43 +108,42 @@
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
+
 .boton:hover {
   background-color: #ffa200;
   color: #401216;
+  transform: translateY(-2px);
 }
 
 /* ============================
-   RESPONSIVE
+   RESPONSIVE GENERAL
 ============================= */
 
-/* Escritorio: 4 tarjetas */
-@media (min-width: 1200px) {
-  .card {
-    width: calc((100vw - 6rem) / 4);
-  }
-}
-
-/* Tablet: 2 tarjetas */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .card {
-    width: calc((100vw - 4rem) / 2);
-  }
-}
-
-/* Móvil: 1 tarjeta */
-@media (max-width: 767px) {
-  .card {
-    width: 90vw;
-  }
-
+/* 📱 Móvil */
+@media (max-width: 768px) {
   .sliderTrack {
     gap: 1rem;
   }
 
+  .card {
+    width: 85vw; /* ✅ ocupa casi toda la pantalla */
+  }
+
   .boton {
     width: 90%;
-    display: inline-block;
+  }
+}
+
+/* 💻 Escritorio grande */
+@media (min-width: 1440px) {
+  .textoIntro h2 {
+    font-size: 2.4rem;
+  }
+
+  .card {
+    width: 320px; /* ✅ tarjetas más grandes en pantallas grandes */
   }
 }

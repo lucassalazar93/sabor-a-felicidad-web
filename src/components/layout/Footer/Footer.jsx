@@ -1,6 +1,7 @@
 // src/components/Footer.jsx
 import "./Footer.css";
-import logo from "../assets/logo.svg";
+import logo from "../../../assets/logo.svg";
+
 import {
   FaInstagram,
   FaFacebook,
@@ -49,7 +50,7 @@ const Footer = () => {
             <FaPhoneAlt /> 350 788 18 93
           </p>
           <p>
-            <FaEnvelope /> saborafelicidad.nore@gmail.com
+            <FaEnvelope /> norequintero.gourmet@gmail.com
           </p>
           <p>
             <FaMapMarkerAlt />{" "}
@@ -106,7 +107,7 @@ const Footer = () => {
 
       {/* Pie inferior */}
       <div className="footer-bottom">
-        <p>&copy; 2025 Sabor a Felicidad. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Nore Quintero. Todos los derechos reservados.</p>
         <div className="footer-links">
           <a href="/terminos">Términos y condiciones</a>
           <span>•</span>

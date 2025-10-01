@@ -51,7 +51,6 @@ const tarjetas = [
 ];
 
 const CelebracionesEspeciales = () => {
-  const [mostrarFlechas, setMostrarFlechas] = useState(true);
   const [animacionActiva, setAnimacionActiva] = useState(true);
 
   useEffect(() => {
@@ -60,7 +59,6 @@ const CelebracionesEspeciales = () => {
     const container = document.getElementById("celebracionesSlider");
 
     const detenerInteraccion = () => {
-      setMostrarFlechas(false);
       setAnimacionActiva(false);
       container?.removeEventListener("scroll", detenerInteraccion);
       container?.removeEventListener("touchstart", detenerInteraccion);
@@ -75,16 +73,6 @@ const CelebracionesEspeciales = () => {
     };
   }, []);
 
-  const scrollSlider = (direction) => {
-    const container = document.getElementById("celebracionesSlider");
-    if (container) {
-      container.scrollBy({
-        left: direction === "left" ? -300 : 300,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <section className={styles.celebraciones} id="celebraciones">
       <h2 className={styles.titulo}>Celebraciones Especiales</h2>
@@ -93,15 +81,6 @@ const CelebracionesEspeciales = () => {
       </p>
 
       <div className={styles.sliderWrapper}>
-        {mostrarFlechas && (
-          <button
-            className={`${styles.arrowLeft}`}
-            onClick={() => scrollSlider("left")}
-          >
-            ◀︎
-          </button>
-        )}
-
         <div
           className={`${styles.grid} ${!animacionActiva ? styles.parada : ""}`}
           id="celebracionesSlider"
@@ -131,15 +110,6 @@ const CelebracionesEspeciales = () => {
             </div>
           ))}
         </div>
-
-        {mostrarFlechas && (
-          <button
-            className={`${styles.arrowRight}`}
-            onClick={() => scrollSlider("right")}
-          >
-            ▶︎
-          </button>
-        )}
       </div>
     </section>
   );

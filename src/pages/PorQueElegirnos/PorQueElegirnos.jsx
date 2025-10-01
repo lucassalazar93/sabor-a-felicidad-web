@@ -1,0 +1,79 @@
+import { useEffect, useRef } from "react";
+import { FaClock, FaUtensils, FaGift, FaHeart } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./PorQueElegirnos.module.css";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const beneficios = [
+  {
+    icono: <FaClock />,
+    titulo: "Entregas Puntuales",
+    descripcion: "Tu pedido llega justo a tiempo, sin sorpresas.",
+  },
+  {
+    icono: <FaUtensils />,
+    titulo: "Personalización de Menús",
+    descripcion: "Creamos opciones que se ajustan a tu estilo.",
+  },
+  {
+    icono: <FaGift />,
+    titulo: "Presentaciones Elegantes",
+    descripcion: "Cada entrega es visualmente impactante.",
+  },
+  {
+    icono: <FaHeart />,
+    titulo: "Experiencia Emocional Garantizada",
+    descripcion: "Cada bocado deja una huella emocional.",
+  },
+];
+
+const PorQueElegirnos = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const context = gsap.context(() => {
+      const cards = gsap.utils.toArray(`.${styles.card}`);
+      gsap.set(cards, { opacity: 0, y: 60, scale: 0.96 });
+
+      gsap.to(cards, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.25,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+    }, sectionRef);
+
+    return () => context.revert();
+  }, []);
+
+  return (
+    <section
+      className={styles.eligirnos}
+      id="porque-elegirnos"
+      ref={sectionRef}
+    >
+      <h2 className={styles.titulo}>¿Por qué elegirnos?</h2>
+
+      <div className={styles.grid}>
+        {beneficios.map((item, i) => (
+          <div key={i} className={styles.card}>
+            <div className={styles.icono}>{item.icono}</div>
+            <h3>{item.titulo}</h3>
+            <p>{item.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default PorQueElegirnos;
