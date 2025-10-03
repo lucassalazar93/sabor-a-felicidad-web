@@ -115,11 +115,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(206, 138, 1, 0.95);
   padding: 0.6rem 1.2rem;
   border-radius: 12px;
   font-size: 0.85rem;
-  color: #590219;
+  color: #080808;
   font-weight: bold;
   z-index: 1;
 }

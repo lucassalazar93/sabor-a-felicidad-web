@@ -6,31 +6,34 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(false); // 👈 nuevo estado
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 20); // 👈 corregido
     };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowNavbar(!entry.isIntersecting); // 👈 ocultar si el #inicio está visible
-      },
-      {
-        threshold: 0.5, // visible al menos 50%
-      }
-    );
-
     const hero = document.getElementById("inicio");
-    if (hero) observer.observe(hero);
+    let observer = null; // 👈 corregido para JS
+
+    if (hero) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          setShowNavbar(!entry.isIntersecting);
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(hero);
+    } else {
+      setShowNavbar(true);
+    }
 
     setTimeout(() => setLoaded(true), 100);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (hero) observer.unobserve(hero);
+      if (hero && observer) observer.unobserve(hero);
     };
   }, []);
 
@@ -49,9 +52,6 @@ const Navbar = () => {
               alt="Sabor a Felicidad - Logo"
               className={styles.logo}
             />
-            {!scrolled && (
-              <span className={styles.brandText}>Nore Quintero</span>
-            )}
           </div>
         </a>
 

@@ -4,49 +4,44 @@
 .categoriasWrapper {
   width: 100%;
   background-color: #fff4e5;
-  padding: 4rem 2rem;
+  padding: 3rem 1.5rem; /* menos espacio vertical */
   box-sizing: border-box;
 }
 
 /* ================================
-   SECCIÓN INDIVIDUAL (base)
+   SECCIÓN INDIVIDUAL
 ================================ */
 .categoria {
-  padding: 4rem 1rem;
-  scroll-margin-top: 120px;
-  max-width: 1200px;
-  margin: 0 auto 5rem auto;
+  padding: 2.5rem 1rem;
+  scroll-margin-top: 100px;
+  max-width: 1100px; /* 👈 reducido de 1200 a 1100 */
+  margin: 0 auto 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-radius: 24px;
-  overflow: hidden; /* Asegura que no se desborden hijos */
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 /* ================================
-   COLORES PERSONALIZADOS POR CATEGORÍA
+   COLORES POR CATEGORÍA
 ================================ */
 .categoriaDesayunos {
   background-color: #6f131be4;
 }
-
 .categoriaPostres {
   background-color: #ffdddde6;
 }
-
 .categoriaSnacks {
   background-color: #f2b749df;
 }
-
 .categoriaRapidas {
   background-color: #ac390cdb;
 }
-
 .categoriaTipica {
   background-color: #ebb250e6;
 }
-
 .categoriaGourmet {
   background-color: #070707;
 }
@@ -58,52 +53,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 0.6rem;
-  font-size: 2.8rem;
+  font-size: 2.2rem; /* 👈 bajado en desktop */
   font-family: var(--font-title);
   color: #590219;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   line-height: 1.2;
   text-align: center;
 }
 
-.categoriaGourmet .titulo {
-  color: #e0c26d;
-}
-
-.categoriaGourmet .descripcion {
-  color: #e0c26d;
-  max-width: 600px;
-}
-
+.categoriaGourmet .titulo,
 .categoriaDesayunos .titulo {
   color: #e0c26d;
 }
-
+.categoriaGourmet .descripcion,
 .categoriaDesayunos .descripcion {
   color: #e0c26d;
-  max-width: 600px;
 }
 
 .icono {
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
-  flex-shrink: 0;
-  display: inline-block;
-  vertical-align: middle;
-  border-radius: 14px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .descripcion {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 0.95rem; /* 👈 reducido */
   color: #590219;
-  max-width: 600px;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  max-width: 550px;
+  margin-bottom: 1.6rem;
+  line-height: 1.4;
 }
 
 /* ================================
@@ -112,97 +94,78 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.2rem; /* 👈 menos espacio */
   width: 100%;
-  max-width: 1100px;
+  max-width: 1000px; /* 👈 reducido */
 }
 
 /* ================================
    TARJETA BASE
 ================================ */
 .card {
-  border-radius: 20px;
-  padding: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 14px;
+  padding: 1rem; /* 👈 menos padding en desktop */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   text-align: center;
-  min-width: 260px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-/* COLORES DE TARJETAS POR CATEGORÍA */
-.categoriaDesayunos .card {
-  background-color: #fff4e5;
-}
-
-.categoriaPostres .card {
-  background-color: #ffebef;
-}
-
-.categoriaSnacks .card {
-  background-color: #d98f07;
-}
-
-.categoriaRapidas .card {
-  background-color: #ebb425;
-}
-
-.categoriaGourmet .card {
-  background-color: #d09e3f;
-}
-
-.categoriaTipica .card {
-  background-color: #af4a10;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .card img {
   width: 100%;
-  height: auto;
-  max-height: 220px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 16px;
-  margin-bottom: 1.2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-height: 180px; /* 👈 reducido */
 }
 
 .card h3 {
-  font-size: 1.3rem;
-  color: #590219;
+  font-size: 0.95rem; /* 👈 más pequeño en desktop */
   font-family: var(--font-title);
-  margin-bottom: 0.4rem;
+  color: #590219;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: #590219;
   font-family: var(--font-body);
-  margin-bottom: 1.4rem;
-  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* BOTÓN */
+/* ================================
+   BOTÓN
+================================ */
 .card button,
 .boton {
   background-color: #590219;
   color: #ffffff;
-  padding: 0.6rem 1.4rem;
+  padding: 0.4rem 0.9rem; /* 👈 más compacto */
   border: none;
-  border-radius: 30px;
-  font-size: 0.95rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
   font-family: var(--font-ui);
   font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
   cursor: pointer;
+  transition: all 0.25s ease;
   align-self: center;
-  box-shadow: 0 4px 10px rgb(56, 56, 56);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .card button:hover,
@@ -218,39 +181,77 @@
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
 @media (max-width: 768px) {
   .grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 1.6rem;
-    padding-bottom: 2rem;
-    padding-left: 1rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .grid::-webkit-scrollbar {
-    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
   }
 
   .card {
-    flex: 0 0 85%;
-    scroll-snap-align: center;
-    max-width: 90%;
-    padding: 2rem 1.6rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .card img {
+    aspect-ratio: 1 / 1;
+    margin-bottom: 0.4rem;
+    max-height: 140px;
+  }
+
+  .card h3 {
+    font-size: 0.85rem;
+  }
+
+  .card p {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .card button {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
   }
 
   .titulo {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
   }
 
   .descripcion {
-    font-size: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .card {
+    flex: 0 0 48%;
+    padding: 0.6rem;
+  }
+
+  .card img {
+    max-height: 110px;
+  }
+
+  .card h3 {
+    font-size: 0.8rem;
+  }
+
+  .card p {
+    font-size: 0.65rem;
+  }
+
+  .card button {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.7rem;
   }
 }
 
@@ -262,8 +263,8 @@
 }
 
 .noData {
-  padding: 3rem;
-  font-size: 1.2rem;
+  padding: 2rem;
+  font-size: 1rem;
   color: #888;
   text-align: center;
   font-style: italic;
@@ -271,15 +272,15 @@
 
 .botonExplorar {
   display: inline-block;
-  margin: 2rem auto 0;
-  padding: 1rem 2rem;
+  margin: 1.5rem auto 0;
+  padding: 0.7rem 1.4rem;
   background-color: #590219;
   color: white;
-  border-radius: 40px;
-  font-size: 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(104, 104, 104, 0.714);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease, color 0.2s ease;
   text-align: center;
 }

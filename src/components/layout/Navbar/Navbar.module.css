@@ -17,6 +17,7 @@
 .scrolled {
   background-color: #ffe9ce;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
   backdrop-filter: blur(8px);
 }
 
@@ -204,22 +205,25 @@
     display: flex;
   }
 
+  /* 👇 Hacemos más grande el logo en móvil */
   .logo {
-    width: 72px;
-    height: 72px;
+    width: 175px; /* antes 72px */
+    height: 175px; /* antes 72px */
   }
 
   .brandText {
     font-size: 1.2rem;
   }
 }
+
+/* =================== TRANSICIONES DE VISIBILIDAD =================== */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
   transition: all 0.4s ease;
-  background-color: #fff4e5; /* o el color que ya tienes */
+  background-color: #fff4e5;
 }
 
 /* Mostrar navbar */

@@ -94,8 +94,6 @@ const CategoriasPage = () => {
 
   return (
     <>
-      <BannerCategorias />
-
       <section className={styles.categoriasWrapper}>
         {ordenCategorias.map((key) => {
           const data = categoriasData[key];
